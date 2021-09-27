@@ -1,0 +1,26 @@
+{
+  "name": "hard-code-gamer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testing": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "start": "node server/server.js",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColeSammons/hard-code-gamer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ColeSammons/hard-code-gamer/issues"
+  },
+  "homepage": "https://github.com/ColeSammons/hard-code-gamer#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
