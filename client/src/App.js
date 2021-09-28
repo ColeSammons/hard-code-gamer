@@ -1,9 +1,16 @@
 import './App.css';
+import React from 'react';
+import ReactPlayer from 'react-player';
 
 function App() {
   return (
     <div>
-      <h1>Test</h1>
+      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <ReactPlayer url='https://www.twitch.tv/shroud'
+        playing={true} 
+        muted={true} 
+        
+        />
     </div>
   );
 }
