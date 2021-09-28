@@ -9,7 +9,6 @@ function App() {
       <ReactPlayer url='https://www.twitch.tv/shroud'
         playing={true} 
         muted={true} 
-        
         />
     </div>
   );
