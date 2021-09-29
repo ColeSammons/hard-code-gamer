@@ -1,9 +1,12 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const videoSchema = new Schema({
     youtubeID: {
-        type: String
+        type: String,
+        unique: true
     }
 });
 
-module.exports = videoSchema;
+const Video = model('Video', videoSchema);
+
+module.exports = Video;

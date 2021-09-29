@@ -1,75 +1,37 @@
-// const { gql } = require('apollo-server-express');
-
-// const typeDefs = gql`
-//   type User {
-//     _id: ID!
-//     username: String
-//     email: String
-//     follows: [Follow]
-//     videos: [Video]
-//   }
-//   type Auth {
-//     token: ID!
-//     user: User
-//   }
-//   type Follow {
-//     streamName: String!
-//   }
-
-//   type Video {
-//     youtubeID: String!
-//   }
-
-//   type Query {
-//     me: User
-//   }
-  
-//   type Mutation {
-//     login(email: String!, password: String!): Auth
-//     addUser(username: String!, email: String!, password: String!): Auth
-//   }
-// `;
-
-// module.exports = typeDefs;
-
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Book {
-    authors: [String]
-    description: String
-    bookId: String
-    image: String
-    link: String
-    title: String
-  }
   type User {
-    _id: ID!
+    _id: ID
     username: String
     email: String
-    bookCount: Int
-    savedBooks: [Book]
+    follows: [Follow]
+    videos: [Video]
   }
   type Auth {
     token: ID!
     user: User
   }
-  input savedBook {
-    authors: [String]
-    title: String
-    description: String
-    bookId: String
-    image: String
-    link: String
+  type Follow {
+    _id: ID
+    streamName: String
   }
+
+  type Video {
+    _id: ID
+    youtubeID: String
+  }
+
   type Query {
     me: User
+    users: [User]
   }
+  
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(input: savedBook): User
-    removeBook(bookId: String!): User
+    addFollow(streamName: String!): User
+    addVideo(youtubeID: String!): User
   }
 `;
 

@@ -1,9 +1,12 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const followSchema = new Schema({
     streamName: {
-        type: String
+        type: String,
+        unique: true
     }
 });
 
-module.exports = followSchema;
+const Follow = model('Follow', followSchema);
+
+module.exports = Follow;

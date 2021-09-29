@@ -1,7 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const followSchema = require('./Follow');
-const videoSchema = require('./Videos');
 
 const userSchema = new Schema(
   {
@@ -9,6 +7,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true
     },
     email: {
       type: String,
@@ -19,9 +18,20 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minLength: 5
     },
-    follows: [followSchema],
-    videos: [videoSchema]
+    follows: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Follow'
+      }
+    ],
+    videos: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Video'
+      }
+    ]
   },
   // set this to use virtual below
   {
@@ -51,6 +61,12 @@ userSchema.virtual('followCount').get(function () {
   return this.follows.length;
 });
 
+userSchema.virtual('videoCount').get(function () {
+  return this.videos.length;
+});
+
 const User = model('User', userSchema);
 
 module.exports = User;
+
+
