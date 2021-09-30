@@ -1,0 +1,18 @@
+.recVideo__container {
+    margin-left: 30px;
+}
+
+.recVideo__videoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.recVideo__videoContainer > * {
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.tag__video {
+    color: #6196FF;
+}
