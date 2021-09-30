@@ -51,16 +51,16 @@ const resolvers = {
     addFollow: async (parent, { streamName }, context) => {
       if (context.user) {
         try {
-          const follow = await Follow.create({ streamName });
-
-          const updatedUser = await User.findByIdAndUpdate(
+          const follow = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $push: { follows: follow._id } },
+            { $push: { follows: { streamName: streamName } } },
             { new: true }
-          ).populate('follows')
+          ).populate("follows")
             .populate('videos');
 
-          return updatedUser;
+          console.log(follow);
+
+          return follow;
         }
         catch (error) {
           throw new AuthenticationError('You are already following that streamer!');
@@ -73,16 +73,16 @@ const resolvers = {
       console.log(youtubeID);
       if (context.user) {
         try {
-          const video = await Video.create({ youtubeID });
-
-          const updatedUser = await User.findByIdAndUpdate(
+          const video = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $push: { videos: video._id } },
+            { $push: { videos: { youtubeID: youtubeID } } },
             { new: true }
-          ).populate('videos')
-            .populate('follows');
+          ).populate("follows")
+            .populate('videos');
 
-          return updatedUser;
+          console.log(video);
+
+          return video;
         }
         catch (error) {
           throw new AuthenticationError('You have already saved that video!');

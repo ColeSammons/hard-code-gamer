@@ -30,8 +30,10 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addFollow(streamName: String!): User
-    addVideo(youtubeID: String!): User
+    addFollow(userID: ID!, streamName: String!): User
+    addVideo(userID: ID!, youtubeID: String!): User
+    removeFollow(_id: ID!): User
+    removeVideo(_id: ID!): User
   }
 `;
 
