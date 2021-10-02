@@ -1,4 +1,5 @@
 import './App.css';
+import GetAPI from './pages/API';
 import Navbar from './components/Navbar.jsx'
 import Sidebar from './components/Sidebar';
 import Carousel from './components/Carousel';
