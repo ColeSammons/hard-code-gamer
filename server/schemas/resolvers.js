@@ -54,7 +54,7 @@ const resolvers = {
           const follow = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $push: { follows: { streamName: streamName } } },
-            { new: true }
+            { new: true, runValidators: true }
           ).populate("follows")
             .populate('videos');
 
@@ -76,7 +76,7 @@ const resolvers = {
           const video = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $push: { videos: { youtubeID: youtubeID } } },
-            { new: true }
+            { new: true, runValidators: true }
           ).populate("follows")
             .populate('videos');
 
