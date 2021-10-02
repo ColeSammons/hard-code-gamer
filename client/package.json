@@ -45,6 +45,10 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["DB_SECRET", "DB_TWITCH_SECRET", "DB_TWITCH_CLIENT"]
+    "whitelist": [
+      "DB_SECRET",
+      "DB_TWITCH_SECRET",
+      "DB_TWITCH_CLIENT"
+    ]
   }
 }

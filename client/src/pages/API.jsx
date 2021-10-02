@@ -1,12 +1,12 @@
 import React from 'react';
-import { getYoutubeSearch, getTwitchToken, getTwitchChannelsByGame } from '../utils/API';
+import { getYtSearch, getTwToken, getTwChannelsByGameID } from '../utils/API';
 
 const GetAPI = () => {
     //Get back search results for keyword
     const handleSubmitYT = async (event) => {
         event.preventDefault();
         try {
-            const response = await getYoutubeSearch('johnny casH');
+            const response = await getYtSearch('johnny casH');
             if (!response.ok) {
                 throw new Error("something went wrong!");
             };
@@ -21,7 +21,7 @@ const GetAPI = () => {
     const handleSubmitTW = async (event) => {
         event.preventDefault();
         try {
-            const response = await getTwitchToken();
+            const response = await getTwToken();
             if (!response.ok) {
                 throw new Error("something went wrong!");
             };
@@ -29,7 +29,7 @@ const GetAPI = () => {
             console.log(`access-token: ${access_token}`);
             console.log(`expires-in: ${expires_in}`);
 
-            const channels = await getTwitchChannelsByGame(access_token);
+            const channels = await getTwChannelsByGameID(access_token, '33214');
             const item = await channels.json();
             console.log(item);
         }
