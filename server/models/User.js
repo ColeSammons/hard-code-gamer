@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const videoSchema = require('./Videos');
+const followSchema = require('./Follow');
 
 const userSchema = new Schema(
   {
@@ -20,18 +22,8 @@ const userSchema = new Schema(
       required: true,
       minLength: 5
     },
-    follows: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Follow'
-      }
-    ],
-    videos: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Video'
-      }
-    ]
+    follows: [followSchema],
+    videos: [videoSchema]
   },
   // set this to use virtual below
   {
