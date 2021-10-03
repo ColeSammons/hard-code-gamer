@@ -1,12 +1,26 @@
 const express = require("express");
+const app = express();
 const path = require("path");
 const db = require("./config/connection");
 const { ApolloServer } = require("apollo-server-express");
-
+const httpServer = require('http').createServer(app)
+const io = require('socket.io')(httpServer);
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
+const { Socket } = require("dgram");
 
-const app = express();
+// socket.io 
+io.on('connection', socket => {
+  socket.on('message',({username, message}) => {
+    io.emit('message', {username, message})
+  })
+})
+
+httpServer.listen(3002, function () {
+  console.log('listening on port 3002')
+})
+
+
 const PORT = process.env.PORT || 3001;
 
 const server = new ApolloServer({
