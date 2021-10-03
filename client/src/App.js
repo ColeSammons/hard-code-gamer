@@ -5,6 +5,7 @@ import './App.css';
 import GetAPI from './pages/API.jsx';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Chat from './components/Chat'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/API" component={GetAPI} />
         </Switch>
+        <Chat />
       </div>
     </Router>
   );
