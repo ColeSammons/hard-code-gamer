@@ -12,11 +12,11 @@ function App() {
     <Router>
       <div className='app'>
         <Navbar />
+        <Chat />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/API" component={GetAPI} />
         </Switch>
-        <Chat />
       </div>
     </Router>
   );
