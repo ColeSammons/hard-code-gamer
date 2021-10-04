@@ -3,7 +3,7 @@ import env from "react-dotenv";
 //Get back search results for keyword
 export const getYtSearch = (data) => {
     data = data.replace(/\s+/g, '%20').toLowerCase().trim();
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${data}&key=AIzaSyDQ-TXKonQ_KK--UuDHZIm6bexKVKgcE_o&maxResults=15`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${data}&key=${env.DB_YOUTUBE_ID}&maxResults=15`;
     return fetch(url);
 };
 

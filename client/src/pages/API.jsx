@@ -83,6 +83,7 @@ const GetAPI = () => {
         };
     };
 
+    //get back top games currently on Twitch
     const handleSubmitTWTopGames = async (event) => {
         event.preventDefault();
 
