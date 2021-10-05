@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
+import Search from './pages/Search';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/API" component={GetAPI} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/search:id" component={Search} />
           </Switch>
         </div>
       </Router>
