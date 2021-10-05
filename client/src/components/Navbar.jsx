@@ -6,9 +6,11 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className="nav__left">
-                <img className='nav__leftLogo' 
-                    src={Logo} 
-                    alt="game logo" />
+                <a href="/">
+                    <img className='nav__leftLogo'
+                        src={Logo}
+                        alt="game logo" />
+                </a>
                 <h2>HARD CODE GAMERS</h2>
             </div>
             <div className="nav__center">
