@@ -35,49 +35,50 @@ const Signup = () => {
   };
 
   return (
-    <form>
-      <div className="login-form">
-        <h2>Signup</h2>
-
-        <div className="form-inputs">
-          <label htmlFor="username">NAME: </label>
-          <input
-            placeholder='Your username'
-            name='username'
-            type='username'
-            id='username'
-            value={formState.username}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-inputs">
-          <label htmlFor="email">EMAIL: </label>
-          <input
-            placeholder='Your email'
-            name='email'
-            type='email'
-            id='email'
-            value={formState.email}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-inputs">
-          <label htmlFor="password">PASSWORD: </label>
-          <input
-            placeholder='******'
-            name='password'
-            type='password'
-            id='password'
-            value={formState.password}
-            onChange={handleChange}
-          />
-        </div>
-        <input type="submit" value="LOGIN" onClick={handleFormSubmit}/>
+    <div className="app__main">
+      <div className="login__container">
+        <form className="login__form">
+          <div className="login-form">
+            <h2>Signup</h2>
+            <div className="form-inputs">
+              <label htmlFor="username">NAME: </label>
+              <input
+                placeholder='Your username'
+                name='username'
+                type='username'
+                id='username'
+                value={formState.username}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-inputs">
+              <label htmlFor="email">EMAIL: </label>
+              <input
+                placeholder='Your email'
+                name='email'
+                type='email'
+                id='email'
+                value={formState.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-inputs">
+              <label htmlFor="password">PASSWORD: </label>
+              <input
+                placeholder='******'
+                name='password'
+                type='password'
+                id='password'
+                value={formState.password}
+                onChange={handleChange}
+              />
+            </div>
+            <input type="submit" value="LOGIN" onClick={handleFormSubmit}/>
+          </div>
+          {error && <div>Sign up failed</div>}
+        </form>
       </div>
-      {error && <div>Sign up failed</div>}
-    </form>
+    </div>
   );
 };
 

@@ -5,6 +5,11 @@ input {
     outline: none;
 }
 
+.app {
+    height: 100vh;
+    background-color: #0E0E10;
+}
+
 .login__container {
     background-color: #0E0E10;
     display: flex;
