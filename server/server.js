@@ -16,9 +16,6 @@ io.on('connection', socket => {
   })
 })
 
-
-
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,

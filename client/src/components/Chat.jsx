@@ -1,62 +1,65 @@
 import React, { useEffect, useRef, useState } from "react"
-import "../style/Chat.css"
 import io from "socket.io-client"
+import "../style/Chat.css"
 import TextField from "@material-ui/core/TextField"
 
-// connecting back end
-const socket = io.connect('http://localhost:3002')
-
 function Chat() {
-    // passing through objects
-    const [state, setState] = useState({message: ''})
-    // empty array for the objects message and username
-    const [chat, setChat] =  useState([])
+	const [ state, setState ] = useState({ message: "", name: "" })
+	const [ chat, setChat ] = useState([])
 
-    const socketRef = useRef()
+	const socketRef = useRef()
 
-    useEffect(() => {
-        socketRef.current = io.connect('http://localhost:3002')
-        socketRef.current.on("message", ({message}) => {
-            setChat([ ...chat, { message } ] )
-        })
-        return () => socketRef.current.disconnect()
-    }, [ chat ])
+	useEffect(
+		() => {
+			socketRef.current = io.connect("http://localhost:3001")
+			socketRef.current.on("message", ({ name, message }) => {
+				setChat([ ...chat, { name, message } ])
+			})
+			return () => socketRef.current.disconnect()
+		},
+		[ chat ]
+	)
 
-    // const textWatcher = (e) => {
-    //     setState ({ ...state, [e.target.username]: e.target})
-    // }
-    const onTextChange = (e) => {
-        setState ({ ...state, [e.target.username]: e.target.value })
-    }
+	const onTextChange = (e) => {
+		setState({ ...state, [e.target.name]: e.target.value })
+	}
 
-    const onMessageSubmit = (e) => {
-        const { username, message} = state
-        socketRef.current.emit("message", { username, message })
-        e.preventDefault()
-        setState({ message:"", username })
-    }
+	const onMessageSubmit = (e) => {
+		const { name, message } = state
+		socketRef.current.emit("message", { name, message })
+		e.preventDefault()
+		setState({ message: "", name })
+	}
 
-return(
-    <div className="chatSection">
-        <form onSubmit={onMessageSubmit}>
-            <h1>Chat</h1>
-            <div className="chatRendered">
-            {}
-            </div>
-            <div>
-            <TextField
-                username="message"
-                onChange={(e) => onTextChange(e)}
-                value={state.message}
-                id=""
-                variant="outlined"
-                label="Send a message..."
-            />
-        </div>
-        </form>
-    
-    </div>
-)
+	const renderChat = () => {
+		return chat.map(({ name, message }, index) => (
+			<div key={index}>
+				<h3>
+					{name}: <span>{message}</span>
+				</h3>
+			</div>
+		))
+	}
 
+	return (
+		<div className="card">
+			<form onSubmit={onMessageSubmit}>
+				<h1 className="chat">Chat</h1>
+                <div className="render-chat">
+                {renderChat()}
+                </div>
+				<div>
+					<TextField
+						name="message"
+						onChange={(e) => onTextChange(e)}
+						value={state.message}
+						id="outlined-multiline-static"
+						variant="outlined"
+						label="Send a message..."
+					/>
+				</div>
+			</form>
+		</div>
+	)
 }
 export default Chat;

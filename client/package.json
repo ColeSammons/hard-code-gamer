@@ -50,7 +50,8 @@
     "whitelist": [
       "DB_SECRET",
       "DB_TWITCH_SECRET",
-      "DB_TWITCH_CLIENT"
+      "DB_TWITCH_CLIENT",
+      "DB_YOUTUBE_ID"
     ]
   }
 }

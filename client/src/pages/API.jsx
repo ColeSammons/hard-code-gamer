@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { getYtSearch, getTwToken, getTwChannelsByGameID, getTwCategoriesByGame, getTwTopGames } from '../utils/API';
+import { getYtSearch, getTwToken, getTwChannelsByGameID, getTwCategoriesByGame, getTwTopGames, getYtRec, getTwTopChannels } from '../utils/API';
 
 const GetAPI = () => {
 
     const [searchYT, setSearchYT] = useState('');
+    const [recYT, setRecYT] = useState('');
     const [tokenTW, setTokenTW] = useState({ access_token: '', expires_in: '' });
     const [searchTWGameID, setSearchTWGameID] = useState('');
     const [searchTWGame, setSearchTWGame] = useState('');
@@ -28,6 +29,28 @@ const GetAPI = () => {
             console.error(error);
         };
     };
+
+    //get back a list of recommended videos based on the video id provided
+    const handleSubmitRecYT = async (event) => {
+        event.preventDefault();
+
+        if (!recYT) {
+            return false;
+        };
+
+        try {
+            const response = await getYtRec(recYT);
+            if (!response.ok) {
+                throw new Error("something went wrong!");
+            };
+            const { items } = await response.json();
+            console.log(items);
+        }
+        catch (error) {
+            console.error(error);
+        };
+    };
+
     //get back access token and expiration
     const handleSubmitTWToken = async (event) => {
         event.preventDefault();
@@ -83,6 +106,7 @@ const GetAPI = () => {
         };
     };
 
+    //get back top games currently on Twitch
     const handleSubmitTWTopGames = async (event) => {
         event.preventDefault();
 
@@ -96,12 +120,29 @@ const GetAPI = () => {
         };
     };
 
+    const handleSubmitTWTopChannels = async (event) => {
+        event.preventDefault();
+
+        try {
+            const channels = await getTwTopChannels(tokenTW.access_token);
+            const item = await channels.json();
+            console.log(item);
+        }
+        catch (error) {
+            console.error(error);
+        };
+    };
+
 
     return (
         <div >
             <form onSubmit={handleSubmitYT}>
                 <input type="text" className='testing-color' onChange={(e) => setSearchYT(e.target.value)} />
                 <button type="submit" className='testing-color'>Youtube Search Keyword</button>
+            </form>
+            <form onSubmit={handleSubmitRecYT}>
+                <input type="text" className='testing-color' onChange={(e) => setRecYT(e.target.value)} />
+                <button type="submit" className='testing-color'>Youtube recommend by video id</button>
             </form>
             <br />
             <br />
@@ -119,6 +160,9 @@ const GetAPI = () => {
             </form>
             <form onSubmit={handleSubmitTWTopGames}>
                 <button type="submit" className='testing-color'>Twitch top games</button>
+            </form>
+            <form onSubmit={handleSubmitTWTopChannels}>
+                <button type="submit" className='testing-color'>Twitch top Channels</button>
             </form>
         </div>
     );
