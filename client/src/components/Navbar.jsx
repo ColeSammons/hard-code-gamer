@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import Logo from '../assets/game-logo-test.png';
 import '../style/Navbar.css'; //import style for Nav component
 
 const Navbar = () => {
+    const [searchToggle, setSearchToggle] = useState('YT');
+    const [search, setSearch] = useState('');
+
+    const handleClickToggle = () => {
+        if (searchToggle === 'YT') {
+            setSearchToggle('TW');
+        };
+        if (searchToggle === 'TW') {
+            setSearchToggle('YT');
+        };
+    };
+
+    const handleSearch = () => {
+        console.log(search, searchToggle);
+        if (!search) {
+            return (
+                <div className="nav__centerLogoContainer">
+                    <i className="fas fa-search"></i>
+                </div>
+            )
+        };
+        return (
+            <Link to={`search/type=${searchToggle}&q=${search}`}>
+                <div className="nav__centerLogoContainer">
+                    <i className="fas fa-search"></i>
+                </div>
+            </Link>
+        );
+
+    };
+
+
     return (
         <div className='navbar'>
             <div className="nav__left">
@@ -18,11 +50,22 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="nav__center">
-                <input type="text" placeholder="Search" />
-                <div className="nav__centerLogoContainer">
-                    <i className="fas fa-search"></i>
-                </div>
+                <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+                {search ? (
+
+                    <div className="nav__centerLogoContainer">
+                        <Link to={`search/type=${searchToggle}&q=${search}`}>
+                            <i className="fas fa-search"></i>
+                        </Link>
+                    </div>
+
+                ) : (
+                    <div className="nav__centerLogoContainer">
+                        <i className="fas fa-search"></i>
+                    </div>
+                )}
             </div>
+
             <div className="nav__right">
                 {/* if user isn't logged in display login and signup, if they are then display logout */}
                 {Auth.loggedIn() ? (
