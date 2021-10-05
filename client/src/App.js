@@ -1,24 +1,22 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './App.css';
-import Navbar from './components/Navbar.jsx'
-import Sidebar from './components/Sidebar';
-import Carousel from './components/Carousel';
-import { CarouselData } from './components/CarouselData';
-import Title from './components/Title';
-import Recommended from './components/Recommended';
+import GetAPI from './pages/API.jsx';
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className='app'>
-      <Navbar />
-      <div class="app__main">
-        <Sidebar />
-        <div class="main__container">
-          <Title />
-          <Carousel slides={CarouselData} />
-          <Recommended />
-        </div>
+    <Router>
+      <div className='app'>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/API" component={GetAPI} />
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 

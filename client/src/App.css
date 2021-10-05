@@ -2,6 +2,10 @@
   color: white;
 }
 
+.testing-color {
+  color: black;
+}
+
 .app__main {
   display: flex;
   height: 100%;
