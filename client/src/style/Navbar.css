@@ -19,6 +19,7 @@
     object-fit: contain;
     height: 3rem;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .nav__left>h2 {

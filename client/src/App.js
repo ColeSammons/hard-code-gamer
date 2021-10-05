@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import GetAPI from './pages/API.jsx';
-import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <div className='app'>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/API" component={GetAPI} />
         </Switch>
       </div>
