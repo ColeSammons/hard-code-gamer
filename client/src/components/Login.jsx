@@ -3,7 +3,7 @@ import '../style/Login.css';
 
 const Login = () => {
     return (
-        <form>
+        <form className="login__form">
             <div className="login-form">
                 <h2>LOGIN</h2>
                 
@@ -29,3 +29,5 @@ const Login = () => {
 }
 
 export default Login
+
+
