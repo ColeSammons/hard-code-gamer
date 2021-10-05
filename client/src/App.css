@@ -2,10 +2,6 @@
   color: white;
 }
 
-.app {
-  height: 100vh;
-}
-
 .app__main {
   display: flex;
   height: 100%;

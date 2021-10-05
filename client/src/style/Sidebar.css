@@ -22,19 +22,21 @@
 
 .donoBtn {
     margin-top: 30px;
-    background-color: #6D96FF;
     border: none;
     border-radius: 15px;
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
     width: 100%;
-    transition: .5s ease;
+    background-image: linear-gradient(to right, #6D96FF 50%, #6D96FF 50%, #FE4880);
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
 }
 
 .donoBtn:hover {
-    transition: .5s ease;
-    background-color: #4A4A4C;
+    transition: .5s;
+    background-position: 100% 0%;
 }
 
 .sidebar__bottom {
