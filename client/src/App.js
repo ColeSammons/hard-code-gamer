@@ -10,7 +10,7 @@ import Chat from './components/Chat'
 function App() {
   return (
     <Router>
-      <div className='app'>
+      <div className="app">
         <Navbar />
         <Chat />
         <Switch>

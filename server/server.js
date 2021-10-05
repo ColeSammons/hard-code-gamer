@@ -16,19 +16,14 @@ io.on('connection', socket => {
   })
 })
 
-httpServer.listen(3002, function () {
-  console.log('listening on port 3002')
-})
 
 
-const PORT = process.env.PORT || 3001;
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
-
 
 server.applyMiddleware({ app });
 

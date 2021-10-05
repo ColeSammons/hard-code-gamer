@@ -1,0 +1,6 @@
+.chatSection {
+    margin: 25px;
+    min-height: 30rem;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+}
