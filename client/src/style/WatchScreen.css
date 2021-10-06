@@ -10,7 +10,8 @@
     height: 70vh;
 }
 
-.watchVideo__info {
+.watchVideo__info__left {
+    flex: 1;
     margin-left: 30px;
 }
 
@@ -27,4 +28,25 @@
     border: 1px solid #2f2f35;
     width: 100%;
     margin: 30px 30px;
+}
+
+.watchVideo__info__right {
+    margin-right: 1.8%;
+}
+
+.btnContainer > * {
+    margin-left: 10px;
+}
+
+.saveButton {
+    background-color: #6D96FF;
+    outline: none;
+    border: none;
+    height: 30px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.saveButton:hover {
+    cursor: pointer;
 }
