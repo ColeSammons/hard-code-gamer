@@ -6,11 +6,11 @@ import { getYtSearch, getTwToken, getTwCategoriesByGame } from '../utils/API';
 import SearchResultsYT from '../components/SearchResultsYT';
 
 const Search = () => {
-    const { id } = useParams();
+    let { id } = useParams();
     let [a, b] = id.split('&');
     let type = a.split('=')[1];
     let search = b.split('=')[1];
-    const [display, setDisplay] = useState('');
+    let [display, setDisplay] = useState('');
 
     const handleDisplay = async () => {
         if (type === 'YT') {
@@ -62,7 +62,7 @@ const Search = () => {
             console.log(temp);
         }
         handle();
-    },[])
+    },[id])
 
     return (
         <div className="app__main">

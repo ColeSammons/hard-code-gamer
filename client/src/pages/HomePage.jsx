@@ -12,7 +12,6 @@ function Home() {
           <div class="main__container">
             <Title />
             <Carousel slides={CarouselData} />
-            <Recommended />
           </div>
         </div>
     );

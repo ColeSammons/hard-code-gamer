@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getYtSearch, getTwToken, getTwChannelsByGameID, getTwCategoriesByGame, getTwTopGames, getYtRec, getTwTopChannels } from '../utils/API';
+import { getYtSearch, getYtSearchI, getTwToken, getTwChannelsByGameID, getTwCategoriesByGame, getTwTopGames, getYtRec, getTwTopChannels } from '../utils/API';
 
 const GetAPI = () => {
 
@@ -18,7 +18,7 @@ const GetAPI = () => {
         };
 
         try {
-            const response = await getYtSearch(searchYT);
+            const response = await getYtSearch('ZwFA3YMfkoc');
             if (!response.ok) {
                 throw new Error("something went wrong!");
             };
