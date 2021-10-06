@@ -147,3 +147,39 @@
   .toggle:checked:before {
     left: 32px;
   }
+
+  .hamburger__container {
+    display: none;
+}
+
+  @media screen and (max-width: 980px) {
+    .logo__name {
+        display: none;
+    }
+
+    .nav__center {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 909px) {
+    .logo__name {
+        display: none;
+    }
+
+    .nav__center {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .nav__leftLogo, .nav__center, .nav__right, .navbar > input {
+        display: none;
+    }
+
+    .hamburger__container {
+        display: block;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+}

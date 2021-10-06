@@ -9,3 +9,15 @@
     justify-content: center;
     flex-direction: column;
 }
+
+@media screen and (max-width: 737px) {
+    .main__container {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main__container {
+        width: 50%;
+    }
+}

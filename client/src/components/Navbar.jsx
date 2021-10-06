@@ -26,8 +26,11 @@ const Navbar = () => {
                         alt="game logo" />
                 </Link>
                 <Link to="/" className="nav__leftName">
-                    <h2 >HARD CODE GAMERS</h2>
+                    <h2 className="logo__name">HARD CODE GAMERS</h2>
                 </Link>
+                <div className="hamburger__container">
+                    <i className="fas fa-bars"></i>
+                </div>
             </div>
             <div className="nav__center">
                 <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
