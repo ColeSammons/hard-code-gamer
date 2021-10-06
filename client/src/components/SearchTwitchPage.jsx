@@ -5,13 +5,14 @@ import "../style/SearchTwitch.css";
 const SearchPageTwitch = ({ item }) => {
   let letter = item.box_art_url.split('-52x72.jpg')[0];
   let newURL = `${letter}-200x300.jpg`;
+  
   return (
-    <>
-      <img className="card__image" src={newURL} />
-      <div className="category__details">
+    <div className="twitch__results">
+      <div className="twitch__card">
+        <img className="card__image" src={newURL} />
         <h5 className="category__title">{item.name}</h5>
       </div>
-    </>
+    </div>
   );
 }
 
