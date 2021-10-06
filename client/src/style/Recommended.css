@@ -1,0 +1,41 @@
+.recVideo__container {
+    margin-left: 30px;
+    padding: 30px 0px;
+}
+
+.recVideo__videoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.recVideo__videoContainer > * {
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.tag__video {
+    color: #6196FF;
+}
+
+@media screen and (max-width: 1499px) {
+    .recVideo__container > * {
+        margin: none;
+    }
+    
+    .recVideo__videoContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .recVideo__container > * {
+        margin: none;
+    }
+
+    .recVideo__videoContainer > * {
+        overflow-x: auto;
+    }
+}

@@ -1,12 +1,15 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 const videoSchema = new Schema({
     youtubeID: {
-        type: String,
-        unique: true
+        type: String
     }
-});
+},
+    {
+        toJSON: {
+            getters: true
+        }
+    }
+);
 
-const Video = model('Video', videoSchema);
-
-module.exports = Video;
+module.exports = videoSchema;

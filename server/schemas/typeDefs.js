@@ -32,6 +32,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addFollow(streamName: String!): User
     addVideo(youtubeID: String!): User
+    removeFollow(streamName: String!): User
+    removeVideo(youtubeID: String!): User
   }
 `;
 

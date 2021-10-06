@@ -51,16 +51,25 @@ const resolvers = {
     addFollow: async (parent, { streamName }, context) => {
       if (context.user) {
         try {
-          const follow = await Follow.create({ streamName });
+          const user = await User.findOne(
+            { _id: context.user._id })
+            .populate("follows");
 
-          const updatedUser = await User.findByIdAndUpdate(
+          user.follows.forEach(data => {
+            if (streamName === data.streamName) {
+              throw new Error;
+            }
+          });
+
+          const follow = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $push: { follows: follow._id } },
-            { new: true }
-          ).populate('follows')
+            { $push: { follows: { streamName: streamName } } },
+            { new: true, runValidators: true }
+          ).populate("follows")
             .populate('videos');
 
-          return updatedUser;
+          return follow;
+
         }
         catch (error) {
           throw new AuthenticationError('You are already following that streamer!');
@@ -70,19 +79,26 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     addVideo: async (parent, { youtubeID }, context) => {
-      console.log(youtubeID);
       if (context.user) {
         try {
-          const video = await Video.create({ youtubeID });
+          const user = await User.findOne(
+            { _id: context.user._id })
+            .populate("videos");
 
-          const updatedUser = await User.findByIdAndUpdate(
+          user.videos.forEach(data => {
+            if (youtubeID === data.youtubeID) {
+              throw new Error;
+            }
+          });
+
+          const video = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $push: { videos: video._id } },
-            { new: true }
-          ).populate('videos')
-            .populate('follows');
+            { $push: { videos: { youtubeID: youtubeID } } },
+            { new: true, runValidators: true }
+          ).populate("follows")
+            .populate('videos');
 
-          return updatedUser;
+          return video;
         }
         catch (error) {
           throw new AuthenticationError('You have already saved that video!');
@@ -91,6 +107,34 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    removeFollow: async (parent, { streamName }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { follows: { streamName: streamName } } },
+          { new: true }
+        ).populate("follows")
+        .populate('videos');
+
+        return updatedUser
+      };
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeVideo: async (parent, { youtubeID }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { videos: { youtubeID: youtubeID } } },
+          { new: true }
+        ).populate("follows")
+        .populate('videos');
+
+        return updatedUser
+      };
+
+      throw new AuthenticationError("You need to be logged in!");
     }
 
   }

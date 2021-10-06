@@ -1,12 +1,16 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
-const followSchema = new Schema({
-    streamName: {
-        type: String,
-        unique: true
+const followSchema = new Schema(
+    {
+        streamName: {
+            type: String
+        }
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
-});
+);
 
-const Follow = model('Follow', followSchema);
-
-module.exports = Follow;
+module.exports = followSchema;
