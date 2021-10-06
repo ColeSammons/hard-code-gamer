@@ -12,6 +12,7 @@ import Signup from './pages/Signup';
 import Search from './pages/Search';
 import WatchPage from './pages/WatchPage';
 import StreamerResultsPage from './pages/StreamerResultsPage';
+import WatchTwitch from './pages/WatchTwitch';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,7 +46,8 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/search/:id" component={Search} />
             <Route exact path="/watchScreen/:id" component={WatchPage} />
-            <Route exact path="/streamerresults" component={StreamerResultsPage} />
+            <Route exact path="/streamResults/:id" component={StreamerResultsPage} />
+            <Route exact path="/watchTwitch/:id" component={WatchTwitch} />
           </Switch>
         </div>
       </Router>
