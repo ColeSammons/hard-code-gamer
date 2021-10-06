@@ -50,6 +50,8 @@
 }
 
 .nav__centerLogoContainer {
+    text-decoration: none;
+    border: none;
     background-color: #2b2b2d;
     width: 50px;
     height: 100%;

@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/API" component={GetAPI} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/search:id" component={Search} />
+            <Route exact path="/search/:id" component={Search} />
           </Switch>
         </div>
       </Router>
