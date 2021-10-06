@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Auth from '../utils/auth';
 import Sidebar from '../components/Sidebar';
-import ReactPlayer from 'react-player';
 import '../style/Search.css'
 import { getYtSearch, getTwToken, getTwCategoriesByGame } from '../utils/API';
+import SearchResultsYT from '../components/SearchResultsYT';
 
 const Search = () => {
     const { id } = useParams();
     let [a, b] = id.split('&');
     let type = a.split('=')[1];
     let search = b.split('=')[1];
+    const [display, setDisplay] = useState('');
 
-    useEffect(async () => {
+    const handleDisplay = async () => {
         if (type === 'YT') {
             try {
                 const response = await getYtSearch(search);
                 if (!response.ok) {
-                    throw new Error("something went wrong!");
+                    throw new Error;
                 };
-                const { items } = await response.json();
+                let { items } = await response.json();
                 console.log(items);
+                return items;
             }
             catch (error) {
                 console.error(error);
@@ -37,8 +38,8 @@ const Search = () => {
                 console.log(`expires-in: ${expires_in}`);
                 try {
                     const games = await getTwCategoriesByGame(access_token, search);
-                    const items = await games.json();
-                    console.log(items);
+                    const data = await games.json();
+                    return data.data;
                 }
                 catch (error) {
                     console.error(error);
@@ -49,74 +50,38 @@ const Search = () => {
             };
         }
         else {
-            throw new Error("Please search for something!");
+            return (
+                <h2>Please search for something!</h2>
+            );
         }
-    }, [id]);
-   
+    };
+    useEffect(() => {
+        async function handle() {
+            const temp = await handleDisplay();
+            setDisplay(temp);
+            console.log(temp);
+        }
+        handle();
+    },[])
+
     return (
         <div className="app__main">
-            <Sidebar/>
+            <Sidebar />
             <div className="main__container">
-                <div className="search__container">
-
-                    <div className="search__results">
-                        <ReactPlayer className="searched__video"
-                            url='https://www.youtube.com/watch?v=Xu7jY3OkvVY&t=5128s&ab_channel=GamesDoneQuick'
-                        />
-                        <div className="video__info">
-                            <h2>Video Title</h2>
-                            <div className="channel__info">
-                                <i className="fas fa-user" id=""></i>
-                                <p>- Channel Name</p>
-                            </div>
-                            <p>Video Description</p>
-                        </div>
+                {display ? (
+                    <div className="search__container">
+                        {display.map((item) => (
+                            <SearchResultsYT item={item} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="search__container">
+                        <h1>loading</h1>
                     </div>
 
-                    <div className="search__results">
-                        <ReactPlayer className="searched__video"
-                            url='https://www.youtube.com/watch?v=Xu7jY3OkvVY&t=5128s&ab_channel=GamesDoneQuick'
-                        />
-                        <div className="video__info">
-                            <h2>Video Title</h2>
-                            <div className="channel__info">
-                                <i className="fas fa-user" id=""></i>
-                                <p>- Channel Name</p>
-                            </div>
-                            <p>Video Description</p>
-                        </div>
-                    </div>
-
-                    <div className="search__results">
-                        <ReactPlayer className="searched__video"
-                            url='https://www.youtube.com/watch?v=Xu7jY3OkvVY&t=5128s&ab_channel=GamesDoneQuick'
-                        />
-                        <div className="video__info">
-                            <h2>Video Title</h2>
-                            <div className="channel__info">
-                                <i className="fas fa-user" id=""></i>
-                                <p>- Channel Name</p>
-                            </div>
-                            <p>Video Description</p>
-                        </div>
-                    </div>
-
-                    <div className="search__results">
-                        <ReactPlayer className="searched__video"
-                            url='https://www.youtube.com/watch?v=Xu7jY3OkvVY&t=5128s&ab_channel=GamesDoneQuick'
-                        />
-                        <div className="video__info">
-                            <h2>Video Title</h2>
-                            <div className="channel__info">
-                                <i className="fas fa-user" id=""></i>
-                                <p>- Channel Name</p>
-                            </div>
-                            <p>Video Description</p>
-                        </div>
-                    </div>
-                    
-                </div>
+                )}
             </div>
+
         </div>
     );
 };
