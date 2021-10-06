@@ -7,8 +7,13 @@ export const getYtSearch = (data) => {
     return fetch(url);
 };
 
+export const getYtSearchI = (data, part) => {
+    const url = `https://youtube.googleapis.com/youtube/v3/videos?part=${part}&id=${data}&key=${env.DB_YOUTUBE_ID}`;
+    return fetch(url);
+};
+
 export const getYtRec = (vidID) => {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=20&type=videoregionCode=US`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=10&type=video&regionCode=US`;
     return fetch(url);
 };
 

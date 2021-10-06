@@ -62,7 +62,7 @@ const Search = () => {
             console.log(temp);
         }
         handle();
-    },[])
+    },[id])
 
     return (
         <div className="app__main">

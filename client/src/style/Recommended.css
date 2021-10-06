@@ -18,6 +18,7 @@
     color: #6196FF;
 }
 
+
 @media screen and (max-width: 1499px) {
     .recVideo__container > * {
         margin: none;
