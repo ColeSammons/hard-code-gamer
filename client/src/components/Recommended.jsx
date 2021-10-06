@@ -64,6 +64,3 @@ const Recommended = () => {
 }
 
 export default Recommended
-
-{/* <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} />
-<h2>Link to Video</h2> */}

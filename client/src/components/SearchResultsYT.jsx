@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
+import "../style/SearchTwitch.css";
+
 
 const SearchResultsYT = ({ item }) => {
     // console.log(item);
     return (
-        <Link to={`/watchScreen/${item.id.videoId}`} className="video_title">
+        <Link to={`/watchScreen/${item.id.videoId}`} className="video_title" key={item.id.videoId}>
             <div className="search__results" key={item.id.videoId}>
                 <img src={item.snippet.thumbnails.high.url} alt="youtube-thumnail" className="searched__video" />
                 <div className="video__info">

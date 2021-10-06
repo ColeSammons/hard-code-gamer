@@ -7,9 +7,9 @@ import Recommended from '../components/Recommended';
 
 function Home() {
     return (
-        <div class="app__main">
+        <div className="app__main">
           <Sidebar />
-          <div class="main__container">
+          <div className="main__container">
             <Title />
             <Carousel slides={CarouselData} />
           </div>
