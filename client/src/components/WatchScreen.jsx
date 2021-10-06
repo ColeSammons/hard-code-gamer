@@ -12,12 +12,18 @@ const WatchScreen = () => {
                 width="100%"
                 height="100%"
             ></iframe>
-            <div className="watchVideo__info">
+            <div className="watchVideo__info__left">
                 <h2 className="watchVideo__title">Title</h2>
                 <div className="views__publish">
                     <p className="watchVideo__views">142,595,310 views</p>
                     <i>•</i>
                     <p className="publish">Nov 23, 2009</p>
+                </div>
+            </div>
+            <div className="watchVideo__info__right">
+                <div className="btnContainer">
+                    <button className="saveButton">SAVE VIDEO</button>
+                    <button className="saveButton">SAVE CHANNEL</button>
                 </div>
             </div>
             <div className="divider__line"></div>
