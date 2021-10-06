@@ -58,6 +58,8 @@
     justify-content: center;
     transition: .5s;
     cursor: pointer;
+    border: none;
+    text-decoration: none;
 }
 
 .nav__centerLogoContainer:hover {

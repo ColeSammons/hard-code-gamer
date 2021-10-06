@@ -22,5 +22,8 @@
   "homepage": "https://github.com/ColeSammons/hard-code-gamer#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3"
   }
 }

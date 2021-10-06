@@ -17,25 +17,6 @@ const Navbar = () => {
         };
     };
 
-    const handleSearch = () => {
-        console.log(search, searchToggle);
-        if (!search) {
-            return (
-                <div className="nav__centerLogoContainer">
-                    <i className="fas fa-search"></i>
-                </div>
-            )
-        };
-        return (
-            <Link to={`search/type=${searchToggle}&q=${search}`}>
-                <div className="nav__centerLogoContainer">
-                    <i className="fas fa-search"></i>
-                </div>
-            </Link>
-        );
-
-    };
-
 
     return (
         <div className='navbar'>
@@ -53,11 +34,9 @@ const Navbar = () => {
                 <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
                 {search ? (
 
-                    <div className="nav__centerLogoContainer">
-                        <Link to={`search/type=${searchToggle}&q=${search}`}>
+                        <Link to={`search/type=${searchToggle}&q=${search}`} className="nav__centerLogoContainer">
                             <i className="fas fa-search"></i>
                         </Link>
-                    </div>
 
                 ) : (
                     <div className="nav__centerLogoContainer">
@@ -65,10 +44,18 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
-
+            <input className="toggle" type="checkbox" onClick={handleClickToggle}/>
             <div className="nav__right">
                 {/* if user isn't logged in display login and signup, if they are then display logout */}
                 {Auth.loggedIn() ? (
+                    <div className="nav__rightContainer">
+                        <a href="/" className="nav__leftName" onClick={() => Auth.logout()}>
+                            <div className="nav__rightLogin">
+                                <h2>Logout</h2>
+                            </div>
+                        </a>
+                    </div>
+                ) : (
                     <>
                         <div className="nav__rightContainer">
                             <Link to="/login" className="nav__leftName">
@@ -85,14 +72,6 @@ const Navbar = () => {
                             </Link>
                         </div>
                     </>
-                ) : (
-                    <div className="nav__rightContainer">
-                        <a href="/" className="nav__leftName" onClick={() => Auth.logout()}>
-                            <div className="nav__rightLogin">
-                                <h2>Logout</h2>
-                            </div>
-                        </a>
-                    </div>
                 )}
             </div>
         </div>
