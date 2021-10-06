@@ -8,7 +8,7 @@ export const getYtSearch = (data) => {
 };
 
 export const getYtRec = (vidID) => {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=AIzaSyDQ-TXKonQ_KK--UuDHZIm6bexKVKgcE_o&maxResults=20&type=videoregionCode=US`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=20&type=videoregionCode=US`;
     return fetch(url);
 };
 
