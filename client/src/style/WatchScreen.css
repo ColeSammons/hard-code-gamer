@@ -2,8 +2,29 @@
     display: flex;
     height: 100%;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .watchScreen__player {
     margin: 30px;
+    height: 70vh;
+}
+
+.watchVideo__info {
+    margin-left: 30px;
+}
+
+.views__publish {
+    display: flex;
+}
+
+.views__publish > i {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.divider__line {
+    border: 1px solid #2f2f35;
+    width: 100%;
+    margin: 30px 30px;
 }
