@@ -17,3 +17,25 @@
 .tag__video {
     color: #6196FF;
 }
+
+@media screen and (max-width: 1499px) {
+    .recVideo__container > * {
+        margin: none;
+    }
+    
+    .recVideo__videoContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .recVideo__container > * {
+        margin: none;
+    }
+
+    .recVideo__videoContainer > * {
+        overflow-x: auto;
+    }
+}
