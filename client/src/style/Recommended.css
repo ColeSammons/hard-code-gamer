@@ -9,9 +9,17 @@
     margin-top: 30px;
 }
 
+.video_overlay {
+    width: 20%;
+}
+
 .recVideo__videoContainer > * {
     margin-right: 20px;
     margin-top: 30px;
+}
+
+.recVideo__videoContainer h2 {
+    width: 100%;
 }
 
 .tag__video {
