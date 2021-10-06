@@ -16,7 +16,7 @@ const Navbar = () => {
             setSearchToggle('YT');
         };
     };
-
+  
     return (
         <div className='navbar'>
             <div className="nav__left">
@@ -45,6 +45,7 @@ const Navbar = () => {
             <div className="nav__right">
                 {/* if user isn't logged in display login and signup, if they are then display logout */}
                 {Auth.loggedIn() ? (
+
                      <div className="nav__rightContainer">
                      <a href="/" className="nav__leftName" onClick={() => Auth.logout()}>
                          <div className="nav__rightLogin">
@@ -52,7 +53,6 @@ const Navbar = () => {
                          </div>
                      </a>
                  </div>
-                    
                 ) : (
                     <>
                     <div className="nav__rightContainer">
