@@ -43,7 +43,7 @@ function App() {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/search/:id" component={Search} />
-            <Route exact path="/watchScreen" component={WatchPage} />
+            <Route exact path="/watchScreen/:id" component={WatchPage} />
           </Switch>
         </div>
       </Router>
