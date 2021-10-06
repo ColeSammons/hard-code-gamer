@@ -61,7 +61,7 @@ export const ADD_FOLLOW = gql`
     }
 `;
 
-export const ADD_Video = gql`
+export const ADD_VIDEO = gql`
     mutation addVideo($youtubeID: String!) {
         addVideo(youtubeID: $youtubeID) {
             _id

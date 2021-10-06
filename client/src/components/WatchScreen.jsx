@@ -2,11 +2,18 @@ import React, { useEffect, useState } from 'react';
 import '../style/WatchScreen.css';
 import { useParams } from 'react-router';
 import { getYtSearchI } from '../utils/API';
+import Auth from '../utils/auth';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_VIDEO, ADD_FOLLOW } from '../utils/mutations';
+// import { GET_ME } from '../utils/queries';
 
 const WatchScreen = () => {
     let { id } = useParams();
+    let youtubeID = id;
     let [displaySn, setDisplaySn] = useState({ snippet: '', statistics: '' });
     let [displaySt, setDisplaySt] = useState({ snippet: '', statistics: '' });
+
+    const [addFollow] = useMutation(ADD_FOLLOW);
 
 
     const handleDisplaySnippet = async () => {
@@ -40,7 +47,20 @@ const WatchScreen = () => {
     const getDate = (code) => {
         let date = new Date(code);
         let myDate = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-        return(myDate);
+        return (myDate);
+    };
+
+    const addVideoHandler = async () => {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            return false;
+        };
+
+        try {
+            await addFollow({variables: {streamName: 'bubba'}});
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     useEffect(() => {
@@ -74,10 +94,10 @@ const WatchScreen = () => {
                         </div>
                     </div>
                     <div className="watchVideo__info__right">
-                      <div className="btnContainer">
-                          <button className="saveButton">SAVE VIDEO</button>
-                          <button className="saveButton">SAVE CHANNEL</button>
-                      </div>
+                        <div className="btnContainer">
+                            <button className="saveButton" onClick={addVideoHandler}>SAVE VIDEO</button>
+                            <button className="saveButton">SAVE CHANNEL</button>
+                        </div>
                     </div>
                     <div className="divider__line"></div>
                 </>
