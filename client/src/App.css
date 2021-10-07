@@ -13,9 +13,6 @@
 
 .main__container {
   background-color: #0E0E10;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
 ::-webkit-scrollbar {
