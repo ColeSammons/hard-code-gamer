@@ -12,6 +12,8 @@ const WatchScreen = () => {
     let youtubeID = id;
     let [displaySn, setDisplaySn] = useState({ snippet: '', statistics: '' });
     let [displaySt, setDisplaySt] = useState({ snippet: '', statistics: '' });
+    let [variable, setvariable] = useState({streamName: 'njngjrngrjgnkrjg'});
+
 
     const [addFollow] = useMutation(ADD_FOLLOW);
 
@@ -55,10 +57,10 @@ const WatchScreen = () => {
         if (!token) {
             return false;
         };
-        let variables = { variables: {follows: 'bubba' }};
+        // let variables = { variables: {streamName: 'bubba' }};
         try {
             console.log('hello');
-            await addFollow(variables);
+            await addFollow({variables:{...variable}});
         } catch (error) {
 
             console.error(error);
