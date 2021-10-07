@@ -1,4 +1,5 @@
 .twitch__results {
+
     display: inline-flex;
     flex-wrap: wrap;
     margin: 30px;
@@ -9,4 +10,31 @@
 
 .category__title {
     inline-size: 150px; 
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.twitch__categories {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.twitch__categories * {
+    margin-right: 20px;
+}
+
+.twitch__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__image {
+height: 300px;
+width: 200px;
+}
+
+.category__details * {
+    margin-top: 10px;
 }

@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
+
 import WatchPage from './pages/WatchPage';
 import StreamerResultsPage from './pages/StreamerResultsPage';
 import WatchTwitch from './pages/WatchTwitch';
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/watchScreen/:id" component={WatchPage} />
             <Route exact path="/streamResults/:id" component={StreamerResultsPage} />
             <Route exact path="/watchTwitch/:id" component={WatchTwitch} />
+
           </Switch>
         </div>
       </Router>
