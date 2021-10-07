@@ -14,13 +14,9 @@ const StreamerResults = ({ item }) => {
                     <div className="stream__results">
                         <img src={newURL} alt="stream-thumbnail" />
                         <div className="stream__info__container">
-                            <div className="stream__info__left">
-                                <Avatar className="avatar"></Avatar>
-                            </div>
-                            <div className="stream__info__right">
                                 <h2 className="stream__title">{item.title}</h2>
                                 <p className="streamer__name">{item.user_name}</p>
-                            </div>
+                                <Avatar className="avatar"></Avatar>
                         </div>
                     </div>
                 </div>
