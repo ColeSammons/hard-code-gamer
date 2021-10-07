@@ -9,7 +9,7 @@ const StreamerResults = ({ item }) => {
     console.log(item);
 
     return (
-            <Link to={`/watchTwitch/${item.id}`}>
+            <Link to={`/watchTwitch/${item.user_name}`}>
                 <div className="stream__results__container">
                     <div className="stream__results">
                         <img src={newURL} alt="stream-thumbnail" />
