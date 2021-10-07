@@ -57,8 +57,10 @@ const WatchScreen = () => {
         };
 
         try {
-            await addFollow({variables: {streamName: 'bubba'}});
+            console.log('hello');
+            await addFollow({streamName: 'bubba'});
         } catch (error) {
+
             console.error(error);
         }
     };

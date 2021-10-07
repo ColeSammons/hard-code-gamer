@@ -25,6 +25,7 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
+      console.log('add user');
       console.log(args);
       const user = await User.create(args);
       const token = signToken(user);
@@ -49,6 +50,7 @@ const resolvers = {
       return { token, user };
     },
     addFollow: async (parent, { streamName }, context) => {
+      console.log('add follow');
       if (context.user) {
         try {
           const user = await User.findOne(
@@ -79,6 +81,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     addVideo: async (parent, { youtubeID }, context) => {
+      console.log('add follow');
       if (context.user) {
         try {
           const user = await User.findOne(
