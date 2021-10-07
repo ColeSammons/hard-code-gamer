@@ -118,7 +118,7 @@ const resolvers = {
           { $pull: { follows: { streamName: streamName } } },
           { new: true }
         ).populate("follows")
-        .populate('videos');
+          .populate('videos');
 
         return updatedUser
       };
@@ -132,7 +132,7 @@ const resolvers = {
           { $pull: { videos: { youtubeID: youtubeID } } },
           { new: true }
         ).populate("follows")
-        .populate('videos');
+          .populate('videos');
 
         return updatedUser
       };

@@ -55,10 +55,10 @@ const WatchScreen = () => {
         if (!token) {
             return false;
         };
-
+        let variables = { variables: {follows: 'bubba' }};
         try {
             console.log('hello');
-            await addFollow({streamName: 'bubba'});
+            await addFollow(variables);
         } catch (error) {
 
             console.error(error);
