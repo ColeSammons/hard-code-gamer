@@ -19,7 +19,10 @@ const StreamerResultsPage = () => {
             console.log(`expires-in: ${expires_in}`);
             try {
                 const games = await getTwChannelsByGameID(access_token, id);
+                console.log(games);
+
                 const data = await games.json();
+
                 return data.data;
             }
             catch (error) {
@@ -35,7 +38,7 @@ const StreamerResultsPage = () => {
         async function handle() {
             const temp = await handleDisplay();
             setDisplay(temp);
-            console.log(temp);
+            // console.log(temp);
         };
         handle();
     }, [id])
@@ -48,11 +51,11 @@ const StreamerResultsPage = () => {
                     {display.map(item => (
                         <StreamerResults item={item} />
                     ))}
-                    
+
                 </div>
             ) : (<h1>loading</h1>)}
         </div>
     )
 }
 
-export default StreamerResultsPage
+export default StreamerResultsPage;
