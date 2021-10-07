@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Sidebar from '../components/Sidebar';
-import '../style/Search.css'
+import '../style/Search.css';
+import "../style/SearchTwitch.css";
 import { getYtSearch, getTwToken, getTwCategoriesByGame } from '../utils/API';
-import SearchResultsYT from '../components/SearchResultsYT';
+import ViewHandler from '../components/ViewHandler';
 
 const Search = () => {
-    const { id } = useParams();
+    let { id } = useParams();
     let [a, b] = id.split('&');
     let type = a.split('=')[1];
     let search = b.split('=')[1];
-    const [display, setDisplay] = useState('');
+    let [display, setDisplay] = useState('');
 
     const handleDisplay = async () => {
         if (type === 'YT') {
@@ -55,30 +56,26 @@ const Search = () => {
             );
         }
     };
+
     useEffect(() => {
         async function handle() {
             const temp = await handleDisplay();
             setDisplay(temp);
-            console.log(temp);
-        }
+            // console.log(temp);
+        };
         handle();
-    },[])
+    }, [id])
 
     return (
         <div className="app__main">
             <Sidebar />
             <div className="main__container">
                 {display ? (
-                    <div className="search__container">
-                        {display.map((item) => (
-                            <SearchResultsYT item={item} />
-                        ))}
-                    </div>
+                    <ViewHandler type={type} display={display} />
                 ) : (
                     <div className="search__container">
                         <h1>loading</h1>
                     </div>
-
                 )}
             </div>
 

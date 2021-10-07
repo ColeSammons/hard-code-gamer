@@ -20,14 +20,14 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className="nav__left">
-                <Link to="/">
+                <a href="/">
                     <img className='nav__leftLogo'
                         src={Logo}
                         alt="game logo" />
-                </Link>
-                <Link to="/" className="nav__leftName">
+                </a>
+                <a href="/" className="nav__leftName">
                     <h2 className="logo__name">HARD CODE GAMERS</h2>
-                </Link>
+                </a>
                 <div className="hamburger__container">
                     <i className="fas fa-bars"></i>
                 </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
             <div className="nav__center">
                 <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
                 {search ? (
-                        <Link to={`search/type=${searchToggle}&q=${search}`} className="nav__centerLogoContainer">
+                        <Link to={`/search/type=${searchToggle}&q=${search}`} className="nav__centerLogoContainer">
                             <i className="fas fa-search"></i>
                         </Link>
                 ) : (

@@ -11,6 +11,7 @@ input {
 }
 
 .login__container {
+    margin-top: 400px;
     background-color: #0E0E10;
     display: flex;
     align-items: center;
