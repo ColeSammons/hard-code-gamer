@@ -8,6 +8,8 @@
 
   A site for gamers to see live streams and youtube videos.
   
+  [Deployed](https://young-badlands-81611.herokuapp.com/)
+  
   ## Table of Contents
 
   * [Technologies](#technologies)
