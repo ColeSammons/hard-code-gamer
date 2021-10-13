@@ -29,7 +29,7 @@ const Carousel = ({ slides }) => {
                     {CarouselData.map((slide, index) => {
                         return (
                             <div className={index === current ? 'slide active' : 'slide'} key={index}>
-                                {index === current && (<ReactPlayer url={slide.video}  playing="true" muted="true"/>)}
+                                {index === current && (<ReactPlayer url={slide.video}  playing={true} muted={true}/>)}
                             </div>
                         )
                     })}

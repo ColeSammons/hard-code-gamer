@@ -48,7 +48,6 @@ export const ADD_FOLLOW = gql`
             _id
             username
             email
-            followCount
             follows {
                 _id
                 streamName
@@ -67,7 +66,6 @@ export const ADD_VIDEO = gql`
             _id
             username
             email
-            reactionCount
             follows {
                 _id
                 streamName

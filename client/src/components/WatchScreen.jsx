@@ -3,20 +3,14 @@ import '../style/WatchScreen.css';
 import { useParams } from 'react-router';
 import { getYtSearchI } from '../utils/API';
 import Auth from '../utils/auth';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { ADD_VIDEO, ADD_FOLLOW } from '../utils/mutations';
-// import { GET_ME } from '../utils/queries';
 
 const WatchScreen = () => {
     let { id } = useParams();
-    let youtubeID = id;
     let [displaySn, setDisplaySn] = useState({ snippet: '', statistics: '' });
     let [displaySt, setDisplaySt] = useState({ snippet: '', statistics: '' });
-    let [variable, setvariable] = useState({streamName: 'njngjrngrjgnkrjg'});
-
-
-    const [addFollow] = useMutation(ADD_FOLLOW);
-
+    let [addVideo] = useMutation(ADD_VIDEO);
 
     const handleDisplaySnippet = async () => {
         try {
@@ -57,13 +51,12 @@ const WatchScreen = () => {
         if (!token) {
             return false;
         };
-        // let variables = { variables: {streamName: 'bubba' }};
         try {
-            console.log('hello');
-            await addFollow({variables:{...variable}});
-        } catch (error) {
+            const {data} = await addVideo({variables: {youtubeID: id}});
+            console.log(data);
+        } catch (e) {
 
-            console.error(error);
+            console.error(e);
         }
     };
 
