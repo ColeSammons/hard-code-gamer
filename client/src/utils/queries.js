@@ -13,6 +13,7 @@ export const GET_ME = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
             
         }
@@ -32,6 +33,7 @@ export const GET_USERS = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
     }

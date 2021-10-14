@@ -78,12 +78,32 @@ export const getTwTopGames= (token) => {
 //get top twitch channels
 export const getTwTopChannels= (token) => {
     const options = {
-        url: `https://api.twitch.tv/helix/streams?first=50&language=en`,
+        url: `https://api.twitch.tv/helix/streams?first=3&language=en`,
         headers: {
             'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
             'Authorization': `Bearer ${token}`
         }
     };
+
+    return fetch(options.url, {
+        method: "GET",
+        headers: options.headers
+    })
+};
+
+//get top twitch channels
+export const getChannels= (data, token) => {
+    let options = {
+        url: `https://api.twitch.tv/helix/users?`,
+        headers: {
+            'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
+            'Authorization': `Bearer ${token}`
+        }
+    };
+
+    data.me.follows.forEach((follow) => {
+        options.url += `login=${follow.streamName}&`;
+    });
 
     return fetch(options.url, {
         method: "GET",
