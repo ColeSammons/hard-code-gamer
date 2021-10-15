@@ -23,7 +23,7 @@
 }
 
 .nav__leftName {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .nav__left > h2 {
