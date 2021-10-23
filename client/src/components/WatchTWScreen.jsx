@@ -27,7 +27,7 @@ const WatchTWScreen = () => {
 
     return (
         <>
-            <ReactPlayer url={`https://www.twitch.tv/${id}`} playing="true" muted="true" width="1000px" height="500px" />
+            <ReactPlayer url={`https://www.twitch.tv/${id}`} playing={true} muted={true} width="1000px" height="500px" />
             <div className="watchVideo__info__left">
                 <h2 className="watchVideo__title">title</h2>
                 <div className="views__publish">

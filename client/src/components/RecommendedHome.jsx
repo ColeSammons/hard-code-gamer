@@ -23,8 +23,9 @@ const RecommendedHome = () => {
 
     useEffect(() => {
         async function handle() {
-            const temp = await handleDisplay();
-            setDisplay(temp);
+            // const temp = await handleDisplay();
+            // setDisplay(temp);
+            setDisplay('dasdasd');
         };
         handle();
     }, []);

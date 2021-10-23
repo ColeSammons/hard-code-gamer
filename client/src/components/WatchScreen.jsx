@@ -7,6 +7,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_VIDEO } from '../utils/mutations';
 
 const WatchScreen = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     let { id } = useParams();
     let [displaySn, setDisplaySn] = useState({ snippet: '', statistics: '' });
     let [displaySt, setDisplaySt] = useState({ snippet: '', statistics: '' });

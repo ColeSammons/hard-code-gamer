@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import { getChannels, getTwToken } from '../utils/API';
 import Auth from '../utils/auth';
-
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     const { loading, data } = useQuery(GET_ME);
@@ -71,12 +71,12 @@ const Sidebar = () => {
                             <>
                                 {data.me.videos.map((video) => {
                                     return (
-                                        <div className="savedVideo__container">
+                                        <Link to={`/watchScreen/${video.youtubeID}`} className="savedVideo__container" key={video.title}>
                                             <p className="savedVideo__title">{video.title}</p>
                                             <span className="savedVideo__trash">
                                                 <i className="fa fa-trash" id="savedVideo__trash" aria-hidden="true"></i>
                                             </span>
-                                        </div>
+                                        </Link>
                                     );
                                 })}
                             </>
