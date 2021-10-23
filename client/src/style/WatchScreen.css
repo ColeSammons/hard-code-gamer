@@ -1,17 +1,6 @@
-.watchScreen__container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
 .watchScreen__player {
-    margin: 30px;
+    margin: 15px;
     height: 70vh;
-}
-
-.watchVideo__info__left {
-    flex: 1;
-    margin-left: 30px;
 }
 
 .views__publish {
@@ -29,8 +18,21 @@
     margin: 30px 30px;
 }
 
-.watchVideo__info__right {
-    margin-right: 1.4%;
+.watchVideo__name {
+    font-size: 16px;
+    color: #6196ff;
+}
+
+.watchVideo__title {
+    font-size: 16px;
+}
+
+.profile__pic {
+    object-fit: contain;
+    margin-right: 5px;
+    width: 60px;
+    border-radius: 50%;
+    height: 60px;
 }
 
 .btnContainer > * {
@@ -49,9 +51,28 @@
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
+    width: 125px;
 }
 
 .saveButton:hover {
     cursor: pointer;
     background-position: 100% 0%;
+}
+
+@media screen and (max-width: 769px) {
+    .watchScreen__player {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .watchScreen__player {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .watchScreen__player {
+        height: 30vh;
+    }
 }

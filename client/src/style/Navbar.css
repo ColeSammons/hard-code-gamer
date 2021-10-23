@@ -170,9 +170,7 @@
   .nav__center {
     width: 40%;
   }
-}
 
-@media screen and (max-width: 769px) {
   .nav__leftLogo,
   .nav__center,
   .nav__right,
@@ -186,3 +184,18 @@
     cursor: pointer;
   }
 }
+
+/* @media screen and (max-width: 769px) {
+  .nav__leftLogo,
+  .nav__center,
+  .nav__right,
+  .navbar > input {
+    display: none;
+  }
+
+  .hamburger__container {
+    display: block;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+} */

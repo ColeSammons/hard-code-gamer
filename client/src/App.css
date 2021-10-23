@@ -7,14 +7,14 @@
 }
 
 .app__main {
-  display: flex;
   background-color: #0E0E10;
+  display: flex; /*change soon*/
 }
 
 .main__container {
   background-color: #0E0E10;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */

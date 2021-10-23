@@ -7,11 +7,13 @@ export const getYtSearch = (data) => {
     return fetch(url);
 };
 
+//Search for specific video
 export const getYtSearchI = (data, part) => {
     const url = `https://youtube.googleapis.com/youtube/v3/videos?part=${part}&id=${data}&key=${env.DB_YOUTUBE_ID}`;
     return fetch(url);
 };
 
+//get reccomended videos based on youtube id given
 export const getYtRec = (vidID) => {
     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=10&type=video&regionCode=US`;
     return fetch(url);
@@ -104,6 +106,36 @@ export const getChannels= (data, token) => {
     data.me.follows.forEach((follow) => {
         options.url += `login=${follow.streamName}&`;
     });
+
+    return fetch(options.url, {
+        method: "GET",
+        headers: options.headers
+    })
+};
+
+export const getChannelInfo= (streamName, token) => {
+    let options = {
+        url: `https://api.twitch.tv/helix/users?login=${streamName}`,
+        headers: {
+            'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
+            'Authorization': `Bearer ${token}`
+        }
+    };
+
+    return fetch(options.url, {
+        method: "GET",
+        headers: options.headers
+    })
+};
+
+export const getChannelByID= (id, token) => {
+    let options = {
+        url: `https://api.twitch.tv/helix/channels?broadcaster_id=${id}`,
+        headers: {
+            'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
+            'Authorization': `Bearer ${token}`
+        }
+    };
 
     return fetch(options.url, {
         method: "GET",

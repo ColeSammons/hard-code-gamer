@@ -76,7 +76,7 @@ const WatchScreen = () => {
             {displaySn && displaySt ? (
                 <>
                     <iframe className="watchScreen__player"
-                        src={`https://www.youtube.com/embed/${id}`}
+                        src={`https://www.youtube.com/embed/${id}?autoplay=1&`}
                         frameBorder="0"
                         title="placeholder"
                         allowFullScreen
