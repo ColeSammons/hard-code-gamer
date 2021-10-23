@@ -15,6 +15,7 @@ mutation login($email: String! ,$password: String!) {
         videos {
           _id
           youtubeID
+          title
         }
       }
     }
@@ -36,6 +37,7 @@ export const ADD_USER = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
         }
@@ -55,14 +57,15 @@ export const ADD_FOLLOW = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
     }
 `;
 
 export const ADD_VIDEO = gql`
-    mutation addVideo($youtubeID: String!) {
-        addVideo(youtubeID: $youtubeID) {
+    mutation addVideo($youtubeID: String!, $title: String!) {
+        addVideo(youtubeID: $youtubeID, title: $title) {
             _id
             username
             email
@@ -73,6 +76,7 @@ export const ADD_VIDEO = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
     }
@@ -91,14 +95,15 @@ export const REMOVE_FOLLOW = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
     }
 `;
 
 export const REMOVE_VIDEO = gql`
-    mutation removeVideo($youtubeID: String!) {
-        removeVideo(youtubeID: $youtubeID) {
+    mutation removeVideo($youtubeID: String!, $title: String!) {
+        removeVideo(youtubeID: $youtubeID, title: $title) {
             _id
             username
             email
@@ -109,6 +114,7 @@ export const REMOVE_VIDEO = gql`
             videos {
                 _id
                 youtubeID
+                title
             }
         }
     }

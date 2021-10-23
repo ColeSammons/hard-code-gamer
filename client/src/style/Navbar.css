@@ -23,7 +23,7 @@
 }
 
 .nav__leftName {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .nav__left > h2 {
@@ -50,7 +50,7 @@
 }
 
 .nav__centerLogoContainer {
-  text-decoration: none;
+  text-decoration: none !important;
   border: none;
   background-color: #2b2b2d;
   width: 50px;
@@ -60,8 +60,6 @@
   justify-content: center;
   transition: 0.5s;
   cursor: pointer;
-  border: none;
-  text-decoration: none;
 }
 
 .nav__centerLogoContainer:hover {
@@ -172,9 +170,7 @@
   .nav__center {
     width: 40%;
   }
-}
 
-@media screen and (max-width: 769px) {
   .nav__leftLogo,
   .nav__center,
   .nav__right,
@@ -188,3 +184,18 @@
     cursor: pointer;
   }
 }
+
+/* @media screen and (max-width: 769px) {
+  .nav__leftLogo,
+  .nav__center,
+  .nav__right,
+  .navbar > input {
+    display: none;
+  }
+
+  .hamburger__container {
+    display: block;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+} */

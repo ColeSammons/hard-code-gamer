@@ -4,9 +4,11 @@ import { useParams } from 'react-router';
 import { getYtSearchI } from '../utils/API';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
-import { ADD_VIDEO, ADD_FOLLOW } from '../utils/mutations';
+import { ADD_VIDEO } from '../utils/mutations';
 
 const WatchScreen = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     let { id } = useParams();
     let [displaySn, setDisplaySn] = useState({ snippet: '', statistics: '' });
     let [displaySt, setDisplaySt] = useState({ snippet: '', statistics: '' });
@@ -46,13 +48,13 @@ const WatchScreen = () => {
         return (myDate);
     };
 
-    const addVideoHandler = async () => {
+    const addVideoHandler = async (title) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
         };
         try {
-            const {data} = await addVideo({variables: {youtubeID: id}});
+            const { data } = await addVideo({ variables: { youtubeID: id, title: title } });
             console.log(data);
         } catch (e) {
 
@@ -66,7 +68,6 @@ const WatchScreen = () => {
             const statistics = await handleDisplayStatistics();
             setDisplaySn(snippet[0]);
             setDisplaySt(statistics[0]);
-
         }
         handle();
     }, [id])
@@ -75,7 +76,7 @@ const WatchScreen = () => {
             {displaySn && displaySt ? (
                 <>
                     <iframe className="watchScreen__player"
-                        src={`https://www.youtube.com/embed/${id}`}
+                        src={`https://www.youtube.com/embed/${id}?autoplay=1&`}
                         frameBorder="0"
                         title="placeholder"
                         allowFullScreen
@@ -92,8 +93,7 @@ const WatchScreen = () => {
                     </div>
                     <div className="watchVideo__info__right">
                         <div className="btnContainer">
-                            <button className="saveButton" onClick={addVideoHandler}>SAVE VIDEO</button>
-                            <button className="saveButton">SAVE CHANNEL</button>
+                            <button className="saveButton" onClick={() => {addVideoHandler(displaySn.snippet.title)}}>SAVE VIDEO</button>
                         </div>
                     </div>
                     <div className="divider__line"></div>

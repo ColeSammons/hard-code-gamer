@@ -80,7 +80,7 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addVideo: async (parent, { youtubeID }, context) => {
+    addVideo: async (parent, { youtubeID, title }, context) => {
       console.log('add follow');
       if (context.user) {
         try {
@@ -96,7 +96,7 @@ const resolvers = {
 
           const video = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $push: { videos: { youtubeID: youtubeID } } },
+            { $push: { videos: { youtubeID: youtubeID, title: title } } },
             { new: true, runValidators: true }
           ).populate("follows")
             .populate('videos');
@@ -125,11 +125,11 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeVideo: async (parent, { youtubeID }, context) => {
+    removeVideo: async (parent, { youtubeID, title }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { videos: { youtubeID: youtubeID } } },
+          { $pull: { videos: { youtubeID: youtubeID, title: title } } },
           { new: true }
         ).populate("follows")
           .populate('videos');

@@ -20,6 +20,7 @@ const typeDefs = gql`
   type Video {
     _id: ID
     youtubeID: String
+    title: String
   }
 
   type Query {
@@ -31,9 +32,9 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addFollow(streamName: String!): User
-    addVideo(youtubeID: String!): User
+    addVideo(youtubeID: String!, title: String!): User
     removeFollow(streamName: String!): User
-    removeVideo(youtubeID: String!): User
+    removeVideo(youtubeID: String!, title: String!): User
   }
 `;
 

@@ -63,6 +63,7 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+    text-decoration: none !important;
 }
 
 .savedVideo__title {
@@ -80,14 +81,14 @@
     transition: .5s ease;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 990px) {
     .sidebar {
         display: none;
     }
 }
 
-@media screen and (max-width: 1499px) {
+/* @media screen and (max-width: 1499px) {
     .sidebar {
         display: none;
     }
-}
+} */

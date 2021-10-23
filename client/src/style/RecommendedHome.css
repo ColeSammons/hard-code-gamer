@@ -28,6 +28,6 @@
 
 .recHome__videoTitle {
     margin-top: 10px;
-   width: 90%;
-   overflow-wrap: break-word;
+    max-width: 350px;
+    font-size: 20px !important;
 }

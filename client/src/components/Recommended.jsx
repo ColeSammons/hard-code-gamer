@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player';
 import '../style/Recommended.css';
 import { useParams } from 'react-router';
 import { getYtRec } from '../utils/API';
@@ -43,6 +42,28 @@ const Recommended = () => {
     return (
         <div>
             {display ? (
+                    <section className="container">
+                        <h2>
+                            <span className="tag__video">VIDEOS</span> WE THINK YOU'LL LIKE
+                        </h2>
+                        <div className="row justify-content-xl-around justify-content-lg-center">
+                            {display.map((item) => (
+                                <Link to={`/watchScreen/${item.id.videoId}`} className="col-xl-4 col-lg-5 text-center video_overlay pt-4">
+                                   <img src={item.snippet.thumbnails.medium.url} alt="youtube-thumnail" />
+                                   <h2 className='text-center mx-auto recHome__videoTitle'>{item.snippet.title}</h2>
+                                </Link>
+                            ))}
+                        </div>
+                    </section>
+            ) : (<h1>loading</h1>)}
+        </div>
+    )
+}
+
+export default Recommended;
+
+{/* <div>
+            {display ? (
                 <section className="recommended" key="rec">
                     <div className="recVideo__container">
                         <h2>
@@ -59,8 +80,4 @@ const Recommended = () => {
                     </div>
                 </section>
             ) : (<h1>loading</h1>)}
-        </div>
-    )
-}
-
-export default Recommended
+        </div> */}
