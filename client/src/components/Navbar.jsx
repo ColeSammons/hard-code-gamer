@@ -25,9 +25,9 @@ const Navbar = () => {
                         src={Logo}
                         alt="game logo" />
                 </a>
-                <a href="/" className="nav__leftName">
+                {/* <a href="/" className="nav__leftName">
                     <h2 className="logo__name">HARD CODE GAMERS</h2>
-                </a>
+                </a> */}
                 <div className="hamburger__container">
                     <i className="fas fa-bars"></i>
                 </div>
