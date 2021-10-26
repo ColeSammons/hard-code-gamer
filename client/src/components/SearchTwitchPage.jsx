@@ -7,14 +7,12 @@ const SearchPageTwitch = ({ item }) => {
     let newURL = `${letter}-200x300.jpg`;
 
     return (
-        <Link to={`/streamResults/${item.id}`}>
-            <div className="twitch__results">
-                <div className="twitch__card">
+        <div className="col-xl-2 col-lg-3 col-sm-4 col-12 text-center card__link pt-3">
+                <Link to={`/streamResults/${item.id}`} className="twitch__card">
                     <img className="card__image" src={newURL} />
-                    <h5 className="category__title">{item.name}</h5>
-                </div>
-            </div>
-        </Link>
+                    <h5 className="category__title my-1">{item.name}</h5>
+                </Link>
+        </div>
 
     );
 }
