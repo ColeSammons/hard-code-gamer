@@ -15,7 +15,7 @@ export const getYtSearchI = (data, part) => {
 
 //get reccomended videos based on youtube id given
 export const getYtRec = (vidID) => {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=10&type=video&regionCode=US`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${vidID}&key=${env.DB_YOUTUBE_ID}&maxResults=20&type=video&regionCode=US`;
     return fetch(url);
 };
 

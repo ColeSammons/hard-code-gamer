@@ -18,3 +18,7 @@
 .stream__info__container * {
     text-decoration: none;
 }
+
+.streamerLink {
+    text-decoration: none !important;
+}
