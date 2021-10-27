@@ -32,7 +32,7 @@
   background-color: #292930;
   border-radius: 5px;
   transition: .3s ease;
-  width: 150%;
+  cursor: pointer;
 }
 
 .main__cont {
