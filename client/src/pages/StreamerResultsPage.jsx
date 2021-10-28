@@ -44,16 +44,17 @@ const StreamerResultsPage = () => {
     }, [id])
 
     return (
-        <div className="app__main">
-            <Sidebar />
-            {display ? (
-                <div className="main__container">
-                    {display.map(item => (
-                        <StreamerResults item={item} />
-                    ))}
-
-                </div>
-            ) : (<h1>loading</h1>)}
+        <div className="main__container container-fluid">
+            <div className="row justify-content-center m-xl-3 m-sm-0">
+                {/* <Sidebar /> */}
+                {display ? (
+                    <>
+                        {display.map(item => (
+                            <StreamerResults item={item} />
+                        ))}
+                    </>
+                ) : (<h1>loading</h1>)}
+            </div>
         </div>
     )
 }
