@@ -2,16 +2,13 @@
   color: white;
 }
 
-.testing-color {
-  color: white;
-}
 
 .app__main {
   background-color: #0E0E10;
   display: flex; /*change soon*/
 }
 
-.main__container {
+.main__color {
   background-color: #0E0E10;
 }
 

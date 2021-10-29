@@ -35,20 +35,20 @@ const ViewHandler = ({ type, display }) => {
                 </div>
             ) : (null)}
             {TW ? (
-                <div className="twitch__results">
-                <h2>Games</h2>
-                <div className="twitch__categories">
-                    {display ? (
-                        <div className="twitch__card">
-                            {display.map((item) => (
-                                <SearchTwitchPage item={item} />
-                            ))}
-                        </div>
-                    ) : (
-                            <h1>loading</h1>
-                    )}
+                <div className="container-fluid">
+                    <h2 className="text-center">Games</h2>
+                    <div className="row justify-content-center">
+                        {display ? (
+                            <>
+                                {display.map((item) => (
+                                    <SearchTwitchPage item={item} />
+                                ))}
+                            </>
+                        ) : (
+                            <h1 className="text-center">loading...</h1>
+                        )}
+                    </div>
                 </div>
-            </div>
             ) : (null)}
         </>
     );

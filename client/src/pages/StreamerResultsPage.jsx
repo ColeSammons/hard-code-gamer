@@ -34,25 +34,20 @@ const StreamerResultsPage = () => {
         };
     };
 
-    useEffect(() => {
-        async function handle() {
-            const temp = await handleDisplay();
-            setDisplay(temp);
-            // console.log(temp);
-        };
-        handle();
+    useEffect(async () => {
+        const temp = await handleDisplay();
+        setDisplay(temp);
+        console.log(temp);
     }, [id])
 
     return (
-        <div className="app__main">
-            <Sidebar />
+        <div className="stream_container main__color" key="stream-container">
             {display ? (
-                <div className="main__container">
+                <>
                     {display.map(item => (
                         <StreamerResults item={item} />
                     ))}
-
-                </div>
+                </>
             ) : (<h1>loading</h1>)}
         </div>
     )

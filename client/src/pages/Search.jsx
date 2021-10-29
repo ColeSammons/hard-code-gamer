@@ -67,18 +67,15 @@ const Search = () => {
     }, [id])
 
     return (
-        <div className="app__main">
-            <Sidebar />
-            <div className="main__container">
-                {display ? (
-                    <ViewHandler type={type} display={display} />
-                ) : (
-                    <div className="search__container">
-                        <h1>loading</h1>
-                    </div>
-                )}
-            </div>
-
+        <div className="main__cont">
+            {/* <Sidebar /> */}
+            {display ? (
+                <ViewHandler type={type} display={display} />
+            ) : (
+                <div className="">
+                    <h1>loading</h1>
+                </div>
+            )}
         </div>
     );
 };
