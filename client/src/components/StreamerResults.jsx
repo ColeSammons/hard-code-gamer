@@ -35,13 +35,17 @@ const StreamerResults = ({ item }) => {
     useEffect(async () => {
         let channel = await getChannelInformation();
         setStreamer(channel);
-        console.log(channel);
+        // console.log(channel);
     })
 
     return (
         <div className="stream__wrapper" key={item.user_name}>
             <Link to={`/watchTwitch/${item.user_name}`} className="streamerLink">
-                <img src={newURL} alt="stream-thumbnail" className="image__thumb" />
+                <div className="image_container">
+                    <img src={newURL} alt="stream-thumbnail" className="image__thumb" />
+                    <div className="live_badge">LIVE</div>
+                    <div className="streamer_views">{item.viewer_count} viewers</div>
+                </div>
                 <div className="stream_profile">
                     {streamer && (<img src={streamer} alt="profile-picture" className="profile__pic" />)}
                     <div>

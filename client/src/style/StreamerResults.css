@@ -60,17 +60,43 @@
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+}
+
+.image_container {
+  position: relative;
   border-bottom: 4px solid #0e0e10;
   border-left: 4px solid #0e0e10;
 }
 
-.image__thumb:hover {
+.image_container:hover {
   border-bottom: 4px solid #6d96ff;
   border-left: 4px solid #6d96ff;
+  position: relative;
   top: -4px;
   right: -4px;
-  position: relative;
   border-radius: 5px;
+}
+
+.live_badge {
+  background-color: red;
+  padding: 1px 6px;
+  font-size: 10px;
+  width: fit-content;
+  border-radius: 5px;
+  font-weight: bold;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.streamer_views {
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1px 6px;
+  width: fit-content;
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
 }
 
 .streamerLink {
@@ -78,7 +104,7 @@
 }
 
 .stream_profile {
-    display: flex;
+  display: flex;
 }
 
 .stream__title {
@@ -95,21 +121,22 @@
   width: fit-content;
 }
 
-.stream__title:hover, .streamer__name:hover {
+.stream__title:hover,
+.streamer__name:hover {
   color: #6d96ff;
 }
 
 .profile__pic {
-    object-fit: contain;
-    margin-right: 5px;
-    width: 45px;
-    border-radius: 50%;
-    height: 45px;
-    border: 3px solid #0e0e10;
+  object-fit: contain;
+  margin-right: 5px;
+  width: 45px;
+  border-radius: 50%;
+  height: 45px;
+  border: 3px solid #0e0e10;
 }
 
 .profile__pic:hover {
-    border: 3px solid #6d96ff;
+  border: 3px solid #6d96ff;
 }
 
 @media (min-width: 600px) {

@@ -34,14 +34,6 @@ const StreamerResultsPage = () => {
         };
     };
 
-    // useEffect(() => {
-    //     async function handle() {
-    //         const temp = await handleDisplay();
-    //         setDisplay(temp);
-    //         console.log(temp);
-    //     };
-    //     handle();
-    // }, [id])
     useEffect(async () => {
         const temp = await handleDisplay();
         setDisplay(temp);
@@ -62,16 +54,3 @@ const StreamerResultsPage = () => {
 }
 
 export default StreamerResultsPage;
-
-// {/* <div className="main__container container-fluid">
-// <div className="row justify-content-center m-xl-3 m-sm-0">
-//     {/* <Sidebar /> */}
-//     {display ? (
-//         <>
-//             {display.map(item => (
-//                 <StreamerResults item={item} />
-//             ))}
-//         </>
-//     ) : (<h1>loading</h1>)}
-// </div>
-// </div> */}
