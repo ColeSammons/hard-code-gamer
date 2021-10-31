@@ -37,7 +37,6 @@ const StreamerResultsPage = () => {
     useEffect(async () => {
         const temp = await handleDisplay();
         setDisplay(temp);
-        console.log(temp);
     }, [id])
 
     return (
