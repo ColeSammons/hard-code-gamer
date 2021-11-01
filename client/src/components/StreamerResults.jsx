@@ -7,7 +7,6 @@ import { getChannelInfo, getTwToken } from '../utils/API';
 const StreamerResults = ({ item }) => {
     let letter = item.thumbnail_url.split('-{width}x{height}.jpg')[0];
     let newURL = `${letter}-564x338.jpg`;
-    // console.log(item);
     const [streamer, setStreamer] = useState('');
 
     const getChannelInformation = async () => {
