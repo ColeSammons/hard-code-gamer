@@ -19,7 +19,6 @@ const StreamerResultsPage = () => {
             console.log(`expires-in: ${expires_in}`);
             try {
                 const games = await getTwChannelsByGameID(access_token, id);
-                console.log(games);
 
                 const data = await games.json();
 
