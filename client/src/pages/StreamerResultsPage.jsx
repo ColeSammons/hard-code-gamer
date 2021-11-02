@@ -39,7 +39,7 @@ const StreamerResultsPage = () => {
     }, [id])
 
     return (
-        <div className="stream_container main__color" key="stream-container">
+        <div className="stream_container main__color" key="stream-results-container">
             {display ? (
                 <>
                     {display.map(item => (

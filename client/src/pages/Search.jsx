@@ -67,7 +67,7 @@ const Search = () => {
     }, [id])
 
     return (
-        <div className="main__cont">
+        <div className="main__color">
             {/* <Sidebar /> */}
             {display ? (
                 <ViewHandler type={type} display={display} />

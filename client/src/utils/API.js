@@ -36,7 +36,7 @@ export const getTwToken = () => {
 //get back <50 live channels for a game category, english only
 export const getTwChannelsByGameID = (token, gameID) => {
     const options = {
-        url: `https://api.twitch.tv/helix/streams?game_id=${gameID}&first=50&language=en`,
+        url: `https://api.twitch.tv/helix/streams?game_id=${gameID}&first=75&language=en`,
         headers: {
             'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
             'Authorization': `Bearer ${token}`
