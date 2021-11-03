@@ -59,5 +59,6 @@
   top: -5px;
   right: -5px;
   border-radius: 5px;
+  transition: .3s ease;
 }
 
