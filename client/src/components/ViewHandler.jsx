@@ -3,24 +3,22 @@ import SearchResultsYT from '../components/SearchResultsYT';
 import SearchTwitchPage from './SearchTwitchPage';
 
 const ViewHandler = ({ type, display }) => {
-    console.log(type, display);
     let [YT, setYT] = useState(false);
-    let [TW, setTW] = useState('');
+    let [TW, setTW] = useState(false);
 
     useEffect(() => {
         if (type == 'YT') {
-            console.log(true)
             setYT('true');
         }
         if (type === 'TW') {
             setTW('true');
         }
-    }, [YT, TW])
+    }, [YT, TW]);
 
     return (
         <>
             {YT ? (
-                <div>
+                <div key="YT_display">
                     {display ? (
                         <div className="search__container">
                             {display.map((item) => (
@@ -35,18 +33,12 @@ const ViewHandler = ({ type, display }) => {
                 </div>
             ) : (null)}
             {TW ? (
-                <div className="container-fluid">
+                <div key="TW_display">
                     <h2 className="text-center">Games</h2>
-                    <div className="row justify-content-center">
-                        {display ? (
-                            <>
-                                {display.map((item) => (
-                                    <SearchTwitchPage item={item} />
-                                ))}
-                            </>
-                        ) : (
-                            <h1 className="text-center">loading...</h1>
-                        )}
+                    <div className="category_container">
+                        {display.map((item) => (
+                            <SearchTwitchPage item={item} />
+                        ))}
                     </div>
                 </div>
             ) : (null)}

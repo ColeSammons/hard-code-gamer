@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { getTwChannelsByGameID, getTwToken } from '../utils/API';
 
 const SearchPageTwitch = ({ item }) => {
-    // console.log(item.id);
     let letter = item.box_art_url.split('-52x72.jpg')[0];
     let newURL = `${letter}-200x300.jpg`;
 
@@ -22,7 +21,6 @@ const SearchPageTwitch = ({ item }) => {
                 const games = await getTwChannelsByGameID(access_token, item.id);
 
                 const data = await games.json();
-                console.log(data.data);
                 return data.data;
             }
             catch (error) {
@@ -54,12 +52,12 @@ const SearchPageTwitch = ({ item }) => {
     }, [item.id])
 
     return (
-        <div className="col-xl-2 col-lg-3 col-sm-4 col-12 text-center pt-3" key={item.id}>
+        <div className="card_wrapper" key={item.id}>
             <Link to={`/streamResults/${item.id}`} className="twitch__card">
-                <div className="card_wrapper">
-                    <div className="card__link">
-                        <img className="card__image" src={newURL} />
-                    </div>
+                <div className="card_image_container">
+                    <img className="card__image" src={newURL} />
+                </div>
+                <div>
                     <div className="category__title">{item.name}</div>
                     {viewerCount && (
                         <div className="category_viewers">{viewerCount} viewers</div>

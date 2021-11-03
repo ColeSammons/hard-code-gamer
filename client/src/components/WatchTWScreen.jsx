@@ -57,13 +57,10 @@ const WatchTWScreen = () => {
         };
     };
 
-    useEffect(() => {
-        async function handle() {
-            let channel = await getChannelInformation();
-            setStreamer(channel);
-            console.log(channel);
-        };
-        handle();
+    useEffect(async () => {
+        let channel = await getChannelInformation();
+        setStreamer(channel);
+        console.log(channel);
     }, [id]);
 
     return (

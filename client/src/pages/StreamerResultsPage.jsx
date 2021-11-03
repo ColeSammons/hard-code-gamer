@@ -15,8 +15,6 @@ const StreamerResultsPage = () => {
                 throw new Error("something went wrong!");
             };
             const { access_token, expires_in } = await response.json();
-            console.log(`access-token: ${access_token}`);
-            console.log(`expires-in: ${expires_in}`);
             try {
                 const games = await getTwChannelsByGameID(access_token, id);
 

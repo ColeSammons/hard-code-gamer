@@ -34,7 +34,6 @@ const StreamerResults = ({ item }) => {
     useEffect(async () => {
         let channel = await getChannelInformation();
         setStreamer(channel);
-        // console.log(channel);
     })
 
     return (
