@@ -15,11 +15,8 @@ const StreamerResultsPage = () => {
                 throw new Error("something went wrong!");
             };
             const { access_token, expires_in } = await response.json();
-            console.log(`access-token: ${access_token}`);
-            console.log(`expires-in: ${expires_in}`);
             try {
                 const games = await getTwChannelsByGameID(access_token, id);
-                console.log(games);
 
                 const data = await games.json();
 
@@ -37,11 +34,10 @@ const StreamerResultsPage = () => {
     useEffect(async () => {
         const temp = await handleDisplay();
         setDisplay(temp);
-        console.log(temp);
     }, [id])
 
     return (
-        <div className="stream_container main__color" key="stream-container">
+        <div className="stream_container main__color" key="stream-results-container">
             {display ? (
                 <>
                     {display.map(item => (
