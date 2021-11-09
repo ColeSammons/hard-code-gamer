@@ -7,13 +7,16 @@ import '../style/Navbar.css'; //import style for Nav component
 const Navbar = () => {
     const [searchToggle, setSearchToggle] = useState('YT');
     const [search, setSearch] = useState('');
+    const [searchPlaceholder, setSearchPlaceholder] = useState('Search for gaming videos!');
 
     const handleClickToggle = () => {
         if (searchToggle === 'YT') {
             setSearchToggle('TW');
+            setSearchPlaceholder('Search for your favorite game!');
         };
         if (searchToggle === 'TW') {
             setSearchToggle('YT');
+            setSearchPlaceholder('Search for gaming videos!');
         };
     };
   
@@ -33,13 +36,13 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="nav__center">
-                <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" placeholder={searchPlaceholder} onChange={(e) => setSearch(e.target.value)} />
                 {search ? (
                         <Link to={`/search/type=${searchToggle}&q=${search}`} className="nav__centerLogoContainer">
                             <i className="fas fa-search"></i>
                         </Link>
                 ) : (
-                    <a type="submit" className="nav__centerLogoContainer">
+                    <a type="submit" className="nav__centerLogoContainer" onClick={() => window.location.reload()}>
                         <i className="fas fa-search"></i>
                     </a>
                 )}
