@@ -4,7 +4,7 @@ import "../style/Sidebar_v2.css";
 const Sidebar_v2 = () => {
     return (
       
-        <h1>a</h1>
+        <h1>ddddda</h1>
     )
 };
 
