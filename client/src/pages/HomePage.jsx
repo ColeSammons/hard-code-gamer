@@ -8,9 +8,8 @@ import RecommendedHome from '../components/RecommendedHome';
 function Home() {
   return (
     <div className="app__main">
-      {/* <Sidebar /> */}
       <Sidebar_v2/>
-      <div className="main__container">
+      <div className="main__color">
         <Title />
         <Carousel />
         <RecommendedHome />
