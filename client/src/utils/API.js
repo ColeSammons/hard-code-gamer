@@ -97,6 +97,22 @@ export const getTwTopChannels= (token) => {
     })
 };
 
+//Used to get live status
+export const getLiveChannel = (data, token) => {
+    const options = {
+        url: `https://api.twitch.tv/helix/streams?user_login=${data}`,
+        headers: {
+            'Client-Id': '0url3bsnihn8ffk5wq6ywyp55xu255',
+            'Authorization': `Bearer ${token}`
+        }
+    };
+
+    return fetch(options.url, {
+        method: "GET",
+        headers: options.headers
+    })
+}
+
 //get top twitch channels
 export const getChannels= (data, token) => {
     let options = {
