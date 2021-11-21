@@ -29,11 +29,17 @@ const Sidebar_v2 = () => {
     //toggles dropdown for Videos
     const handleDropdownVideos = () => {
         settoggleDropdownVideos(!toggleDropdownVideos);
+        if(toggleArrow == false && toggleDropdownVideos == false) {
+            handleToggle();
+        }
     };
 
     //toggles Dropdown for Streams
     const handleDropdownStreams = () => {
         settoggleDropdownStreams(!toggleDropdownStreams);
+        if(toggleArrow == false && toggleDropdownStreams == false) {
+            handleToggle();
+        }
     };
 
     //Gets user's followed channels
@@ -115,8 +121,29 @@ const Sidebar_v2 = () => {
                         <span className="hidden-arrow"><i className={`fas fa-chevron-right ${toggleDropdownVideos ? "hidden-arrow-rotate" : ""} transition-sidebar`}></i></span>
                     </li>
                     <ul className={`dropdown-videos-content ${toggleDropdownVideos ? "active-dropdown" : "inactive-dropdown"} transition-sidebar`}>
-                        <li>Dark Souls Speedrun</li>
-                        <li>Judge Dredd Review</li>
+                        {loggedIn ? (
+                            <>
+                                {loading ? (null) : (
+                                    <>
+                                        {data.me.videos.map((video) => {
+                                            return (
+                                                <li>
+                                                    <Link to={`/watchScreen/${video.youtubeID}`} className="channel sidebar-text-expand" key={video.title}>
+                                                        <i class="fab fa-youtube fa-lg sidebar-video-icon"></i>
+                                                        <div>
+                                                            <p className="sidebar-video-title">{video.title}</p>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+
+                                            );
+                                        })}
+                                    </>
+                                )}
+                            </>
+                        ) : (
+                            <div className="sidebar-not-user">Log in or Sign up!</div>
+                        )}
                     </ul>
                 </li>
 
