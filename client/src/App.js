@@ -39,7 +39,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='app'>
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/API" component={GetAPI} />
@@ -49,7 +49,6 @@ function App() {
             <Route exact path="/watchScreen/:id" component={WatchPage} />
             <Route exact path="/streamResults/:id" component={StreamerResultsPage} />
             <Route exact path="/watchTwitch/:id" component={WatchTwitch} />
-
           </Switch>
         </div>
       </Router>

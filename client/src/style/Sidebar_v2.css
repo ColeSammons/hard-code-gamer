@@ -1,0 +1,163 @@
+.sidebar-wrapper {
+  height: 100vh;
+  border-right: 1px solid black;
+  z-index: 999;
+  background-color: #141418;
+  position: fixed;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar-sm {
+  width: 54px;
+}
+
+.sidebar-sm .close-button {
+  max-width: 42px;
+  transition: 0.3s ease;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s;
+  -webkit-transition: ease 0.3s;
+}
+
+.sidebar-lg {
+  width: 254px;
+}
+
+.list-wrapper {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.close-button {
+  font-size: 20px;
+  padding: 10px 0px 10px 10px;
+  text-align: right;
+  max-width: 245px;
+}
+
+.fa-arrow-right {
+  padding: 5px;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 3px;
+}
+
+.fa-arrow-right:active {
+  background-color: #3d3d4d;
+  border-radius: 50px;
+}
+
+.sidebar-rotate-arrow {
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.sidebar-list {
+  padding: 10px;
+}
+
+.icon {
+  width: 40px;
+}
+
+.fa-home::before {
+  margin-left: 4px;
+}
+
+.fa-user::before {
+  margin-left: 8px;
+}
+
+.fa-play::before {
+  margin-left: 9px;
+}
+
+.fa-video::before {
+  margin-left: 6px;
+}
+
+.sidebar-list:hover {
+  background-color: #6d96ff;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown-videos-content {
+  background-color: #2b2b36;
+  list-style-type: none;
+  padding: 0px;
+}
+
+.inactive-dropdown {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.active-dropdown {
+  height: auto;
+  opacity: 1;
+}
+
+.active-dropdown-color {
+  background-color: #5787ff;
+}
+
+.hidden-arrow {
+  padding: 5px 0;
+}
+
+.hidden-arrow-rotate {
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.sidebar-title {
+  margin: 0 15px;
+  font-size: 22px;
+  min-width: 150px;
+  display: inline-block;
+}
+
+.transition-sidebar {
+  transition: 0.3s ease;
+  -moz-transition: ease 0.3s;
+  -o-transition: ease 0.3s;
+  -webkit-transition: ease 0.3s;
+}
+
+.sidebar-not-user {
+  margin: 0 65px;
+  width: fit-content;
+}
+
+.sidebar-video-title {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 190px;
+  margin: 0 5px 0 10px;
+}
+
+.sidebar-text-expand:hover {
+  height: auto;
+}
+
+.sidebar-text-expand:hover .sidebar-video-title {
+  white-space: normal;
+  overflow: visible;
+}
+
+.sidebar-video-icon {
+  width: 40px;
+  padding: 10px;
+  margin-top: 3px;
+}

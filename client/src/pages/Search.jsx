@@ -61,7 +61,6 @@ const Search = () => {
         async function handle() {
             const temp = await handleDisplay();
             setDisplay(temp);
-            // console.log(temp);
         };
         handle();
     }, [id])

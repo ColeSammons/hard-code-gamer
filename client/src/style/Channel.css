@@ -1,25 +1,64 @@
 .channel {
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0px;
-    text-decoration: none !important;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  padding: 5px;
+  height: 50px;
+}
+
+.channel-name {
+  margin: 0 0 0 7px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.channel-game {
+  margin: 0 0 0 7px;
+  font-size: 12px;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .channel:hover {
-    background-color: #25252c;
+  background-color: #25252c;
 }
 
 .channel__details {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.channel>div>img {
-    object-fit: contain;
-    margin-right: 5px;
-    width: 40px;
-    border-radius: 50%;
+.channel-avatar {
+  object-fit: contain;
+  margin-right: 5px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.channel-views {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  font-size: 14px;
+  min-width: 45px;
+}
+
+.channel-live {
+  background-color: #e91916;
+  border-radius: 50px;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: auto 0;
+}
+
+.channel-view-num {
+  margin-left: 5px;
 }
