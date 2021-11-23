@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Sidebar from '../components/Sidebar';
 import StreamerResults from "../components/StreamerResults";
 import { useParams } from 'react-router';
 import { getTwChannelsByGameID, getTwToken } from '../utils/API';

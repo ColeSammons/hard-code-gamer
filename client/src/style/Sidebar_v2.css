@@ -1,5 +1,5 @@
 .sidebar-wrapper {
-  height: 100vh;
+  height: 93vh;
   border-right: 1px solid black;
   z-index: 999;
   background-color: #141418;
@@ -43,11 +43,15 @@
   cursor: pointer;
   padding: 5px;
   margin-right: 3px;
+  border-radius: 50px;
+}
+
+.fa-arrow-right:hover {
+  background-color: #3d3d4d;
 }
 
 .fa-arrow-right:active {
-  background-color: #3d3d4d;
-  border-radius: 50px;
+  background-color: #2f2f3b;
 }
 
 .sidebar-rotate-arrow {
@@ -149,6 +153,7 @@
 
 .sidebar-text-expand:hover {
   height: auto;
+  min-height: 50px !important;
 }
 
 .sidebar-text-expand:hover .sidebar-video-title {
@@ -160,4 +165,10 @@
   width: 40px;
   padding: 10px;
   margin-top: 3px;
+}
+
+@media screen and (max-width: 780px) {
+  .sidebar-wrapper {
+    display: none;
+  }
 }

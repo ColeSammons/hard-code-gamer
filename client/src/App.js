@@ -10,7 +10,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
-
+import Sidebar_v2 from './components/Sidebar_v2';
 import WatchPage from './pages/WatchPage';
 import StreamerResultsPage from './pages/StreamerResultsPage';
 import WatchTwitch from './pages/WatchTwitch';
@@ -39,7 +39,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='app'>
-          {/* <Navbar /> */}
+          <Navbar />
+          <Sidebar_v2 />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/API" component={GetAPI} />

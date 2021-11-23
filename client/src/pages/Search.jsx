@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Sidebar_v2 from '../components/Sidebar_v2';
 import '../style/Search.css';
 import "../style/SearchTwitch.css";
 import { getYtSearch, getTwToken, getTwCategoriesByGame } from '../utils/API';
@@ -67,7 +66,7 @@ const Search = () => {
 
     return (
         <div className="main__color">
-            {/* <Sidebar_v2 /> */}
+
             {display ? (
                 <ViewHandler type={type} display={display} />
             ) : (

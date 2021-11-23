@@ -29,7 +29,7 @@ const Sidebar_v2 = () => {
     //toggles dropdown for Videos
     const handleDropdownVideos = () => {
         settoggleDropdownVideos(!toggleDropdownVideos);
-        if(toggleArrow == false && toggleDropdownVideos == false) {
+        if (toggleArrow === false && toggleDropdownVideos === false) {
             handleToggle();
         }
     };
@@ -37,35 +37,35 @@ const Sidebar_v2 = () => {
     //toggles Dropdown for Streams
     const handleDropdownStreams = () => {
         settoggleDropdownStreams(!toggleDropdownStreams);
-        if(toggleArrow == false && toggleDropdownStreams == false) {
+        if (toggleArrow === false && toggleDropdownStreams === false) {
             handleToggle();
         }
     };
 
-    //Gets user's followed channels
-    const getFollowChannels = async () => {
-        try {
-            const response = await getTwToken();
-            if (!response.ok) {
-                throw new Error("something went wrong!");
-            };
-            const { access_token } = await response.json();
+    useEffect(() => {
+        //Gets user's followed channels
+        const getFollowChannels = async () => {
             try {
-                const games = await getChannels(data, access_token);
-                const chan = await games.json();
-                console.log(chan.data);
-                return chan.data;
+                const response = await getTwToken();
+                if (!response.ok) {
+                    throw new Error("something went wrong!");
+                };
+                const { access_token } = await response.json();
+                try {
+                    const games = await getChannels(data, access_token);
+                    const chan = await games.json();
+                    console.log(chan.data);
+                    return chan.data;
+                }
+                catch (error) {
+                    console.error(error);
+                };
             }
             catch (error) {
                 console.error(error);
             };
-        }
-        catch (error) {
-            console.error(error);
         };
-    };
-
-    useEffect(() => {
+        //If not loading user data, then get channels user follows
         if (!loading) {
             async function handle() {
                 let channels = await getFollowChannels();
@@ -73,7 +73,7 @@ const Sidebar_v2 = () => {
             };
             handle();
         }
-    }, [loading]);
+    }, [loading, data]);
 
     return (
         <div className={`sidebar-wrapper ${toggle ? "sidebar-lg" : "sidebar-sm"} transition-sidebar`}>
@@ -82,8 +82,10 @@ const Sidebar_v2 = () => {
             </div>
             <ul className="list-wrapper">
                 <li className="sidebar-list transition-sidebar">
-                    <i className="fas fa-home fa-lg icon"></i>
-                    <span className="sidebar-title">Home</span>
+                    <Link to={`/`}>
+                        <i className="fas fa-home fa-lg icon"></i>
+                        <span className="sidebar-title">Home</span>
+                    </Link>
                 </li>
                 <li className="sidebar-list transition-sidebar">
                     <i className="fas fa-user fa-lg icon"></i>

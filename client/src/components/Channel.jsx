@@ -6,43 +6,46 @@ import { getLiveChannel, getTwToken } from '../utils/API';
 const Channel = ({ avatar, name }) => {
     const [liveStatus, setLiveStatus] = useState('');
 
-    const getLiveStatus = async () => {
-        try {
-            const response = await getTwToken();
-            if (!response.ok) {
-                throw new Error("something went wrong!");
-            };
-            const { access_token } = await response.json();
-            try {
-                const games = await getLiveChannel(name, access_token);
-                const chan = await games.json();
-                console.log(chan.data);
-                if (chan.data.length == 0) {
-                    return false;
-                }
-                let status = {
-                    views: setViewerFormat(chan.data[0].viewer_count),
-                    game: chan.data[0].game_name
-                }
-                return status;
-            }
-            catch (error) {
-                console.error(error);
-            };
-        }
-        catch (error) {
-            console.error(error);
-        };
-    };
-
     const setViewerFormat = (views) => {
         return Math.abs(views) > 999 ? Math.sign(views) * ((Math.abs(views) / 1000).toFixed(1)) + 'k' : Math.sign(views) * Math.abs(views)
     };
 
-    useEffect(async () => {
-        let live = await getLiveStatus();
-        setLiveStatus(live);
-    }, [])
+    useEffect(() => {
+        const getLiveStatus = async () => {
+            try {
+                const response = await getTwToken();
+                if (!response.ok) {
+                    throw new Error("something went wrong!");
+                };
+                const { access_token } = await response.json();
+                try {
+                    const games = await getLiveChannel(name, access_token);
+                    const chan = await games.json();
+                    console.log(chan.data);
+                    if (chan.data.length === 0) {
+                        return false;
+                    }
+                    let status = {
+                        views: setViewerFormat(chan.data[0].viewer_count),
+                        game: chan.data[0].game_name
+                    }
+                    return status;
+                }
+                catch (error) {
+                    console.error(error);
+                };
+            }
+            catch (error) {
+                console.error(error);
+            };
+        };
+
+        const handleLiveStatus = async () => {
+            let live = await getLiveStatus();
+            setLiveStatus(live);
+        }
+        handleLiveStatus();
+    }, [avatar, name])
 
     return (
         <li>
