@@ -4,11 +4,7 @@
 
 .app__main {
   background-color: #0E0E10;
-  display: flex; /*change soon*/
-}
-
-.main__color {
-  background-color: #0E0E10;
+  /* display: flex; */
   margin-left: 50px;
 }
 
@@ -24,4 +20,10 @@
 ::-webkit-scrollbar-thumb {
   background: #494646;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 780px){
+  .app__main {
+    margin-left: 0px;
+  }
 }

@@ -63,10 +63,12 @@
 
 .sidebar-list {
   padding: 10px;
+  height: 53px;
 }
 
 .icon {
   width: 40px;
+  height: 100%;
 }
 
 .fa-home::before {
@@ -83,6 +85,16 @@
 
 .fa-video::before {
   margin-left: 6px;
+}
+
+.fa-gamepad::before {
+  margin-left: 4px;
+}
+
+.testing {
+  width: fit-content;
+  height: 100%;
+  display: inline-block;
 }
 
 .sidebar-list:hover {

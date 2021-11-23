@@ -91,6 +91,10 @@ const Sidebar_v2 = () => {
                     <i className="fas fa-user fa-lg icon"></i>
                     <span className="sidebar-title">Profile</span>
                 </li>
+                <li className="sidebar-list transition-sidebar">
+                    <i className="fas fa-gamepad fa-lg icon"></i>
+                    <span className="sidebar-title">Games</span>
+                </li>
                 <li className="dropdown-videos-container">
                     <li className={`sidebar-list ${toggleDropdownStreams ? "active-dropdown-color" : ""} transition-sidebar`} onClick={handleDropdownStreams}>
                         <i className="fas fa-play fa-lg icon"></i>
