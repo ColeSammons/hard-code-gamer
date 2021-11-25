@@ -81,7 +81,7 @@ export const getTwTopGames= (token) => {
     })
 };
 
-//get top twitch channels
+//get 3 top twitch channels
 export const getTwTopChannels= (token) => {
     const options = {
         url: `https://api.twitch.tv/helix/streams?first=3&language=en`,

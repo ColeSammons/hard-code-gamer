@@ -2,14 +2,21 @@
   color: white;
 }
 
-.app__main {
+html {
   background-color: #0E0E10;
-  display: flex; /*change soon*/
+  height: 100%;
 }
 
-.main__color {
-  background-color: #0E0E10;
-  margin-left: 50px;
+.app {
+  background-color: #0e0e10;
+}
+
+body {
+  height: 100%;
+}
+
+.app__main {
+    margin-left: 50px;
 }
 
 /* Scrollbar */
@@ -24,4 +31,10 @@
 ::-webkit-scrollbar-thumb {
   background: #494646;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 780px){
+  .app__main {
+    margin-left: 0px;
+  }
 }
