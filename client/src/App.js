@@ -3,17 +3,15 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 import './App.css';
-
-import GetAPI from './pages/API.jsx';
-import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
-import Sidebar_v2 from './components/Sidebar_v2';
+import SidebarV2 from './components/SidebarV2';
 import WatchPage from './pages/WatchPage';
 import StreamerResultsPage from './pages/StreamerResultsPage';
 import WatchTwitch from './pages/WatchTwitch';
+import NavbarV2 from './components/NavbarV2';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,11 +37,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='app'>
-          <Navbar />
-          <Sidebar_v2 />
+          <NavbarV2 />
+          <SidebarV2 />
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/API" component={GetAPI} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/search/:id" component={Search} />

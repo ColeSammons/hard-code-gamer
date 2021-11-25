@@ -21,7 +21,6 @@ const Channel = ({ avatar, name }) => {
                 try {
                     const games = await getLiveChannel(name, access_token);
                     const chan = await games.json();
-                    console.log(chan.data);
                     if (chan.data.length === 0) {
                         return false;
                     }
@@ -49,7 +48,7 @@ const Channel = ({ avatar, name }) => {
 
     return (
         <li>
-            <Link to={`/watchTwitch/${name}`} className="channel" key={name}>
+            <Link to={`/watchTwitch/${name}`} className="channel">
                 <div className="channel__details">
                     <img src={avatar} alt="avatar" className="channel-avatar" />
                     <div>
