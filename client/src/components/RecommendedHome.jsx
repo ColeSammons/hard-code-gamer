@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/RecommendedHome.css';
 import { getYtSearch } from '../utils/API';
+import { Link } from 'react-router-dom';
 
 const RecommendedHome = () => {
     let [display, setDisplay] = useState('');
@@ -34,16 +35,17 @@ const RecommendedHome = () => {
                     <>
                         {display.map((data) => {
                             return (
-                                <div className="col-xl-4 col-lg-5 text-center">
+                                <Link to={`/watchScreen/${data.id.videoId}`} className="col-xl-4 col-lg-5 text-center rec-link">
                                     <img src={data.snippet.thumbnails.medium.url} alt="rec-video" />
                                     <h4 className="recHome__videoTitle text-center mx-auto">{data.snippet.title}</h4>
-                                </div>
+                                </Link>
                             )
                         })}
                     </>
                 ) : (<h1>loading</h1>)}
             </div>
         </section>
+        
     )
 }
 

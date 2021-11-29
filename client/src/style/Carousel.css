@@ -1,46 +1,55 @@
-.carousel__container {
-    background-color: #0e0e10;
+.carousel-player {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  max-height: 590px;
+  max-width: 1030px;
 }
 
-.carousel {
-    display: flex;
-    margin: 5% 0px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
+.car-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.arrowRight {
-    position: absolute;
-    top: 50%;
-    right: 30%;
-    font-size: 3rem;
-    color: black;
+.car-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.car-button {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.car-button:hover {
+    transform: scale(1.1);
+    transition: .3s ease;
+}
+
+.car-button-active {
+    background-color: #6d96ff;
+}
+
+.car-stream {
+    background-color: #6d96ff;
+    padding: 5px;
+    width: fit-content;
+    margin: 0 auto;
     cursor: pointer;
-    z-index: 10;
-    user-select: none;
+    border-radius: 5px;
 }
 
-.arrowLeft {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    font-size: 3rem;
-    color: black;
-    cursor: pointer;
-    z-index: 10;
-    user-select: none;
+@media screen and (min-width: 1100px) {
+  .car-wrapper {
+    padding-top: 580px;
+  }
 }
-
-.slide {
-    opacity: 0;
-    transition-duration: 1s ease;
-}
-
-.slide.active {
-    opacity: 1;
-    transition-duration: 1s;
-    transform: scale(1.08);
-}
-
