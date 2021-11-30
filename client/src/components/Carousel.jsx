@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Carousel = () => {
     const [slides, setCarouselData] = useState('');
-    const [stream, setStream] = useState('shroud');
+    const [stream, setStream] = useState('');
 
     useEffect(() => {
         const getCarousel = async () => {
@@ -19,6 +19,7 @@ const Carousel = () => {
                 try {
                     const games = await getTwTopChannels(access_token);
                     const data = await games.json();
+                    console.log(data.data);
                     return data.data;
                 }
                 catch (error) {
@@ -33,26 +34,12 @@ const Carousel = () => {
         async function handle() {
             let carousel = await getCarousel();
             setCarouselData(carousel);
-            setStream(slides[0].user_login)
+            setStream(carousel[0].user_login);
         };
         handle();
     }, []);
 
     return (
-        // <section className="carousel__container">
-        //     <div className="carousel">
-        //         <img className="arrowLeft" src={arrLeft} alt="" onClick={prevImg} />
-        //         <img className="arrowRight" src={arrRight} alt="" onClick={nextImg} />
-        //         {slides.map((slide, index) => {
-        //             return (
-        //                 <div className={index === current ? 'slide active car-wrapper' : 'slide car-wrapper'} key={index}>
-        //                     {index === current && (<ReactPlayer url={`https://www.twitch.tv/${slide.user_login}`} playing={true} muted={true} width="100%" height="100%" className="carousel-player"/>)}
-        //                 </div>
-
-        //             )
-        //         })}
-        //     </div>
-        // </section>
         <>
             {/* <Link to={`/watchTwitch/${stream}`} className="car-overlay">
                 
@@ -63,12 +50,14 @@ const Carousel = () => {
                         <ReactPlayer url={`https://www.twitch.tv/${stream}`} playing={true} muted={true} width="100%" height="100%" className="carousel-player" />
                     </div>
                     <div className="car-nav">
-                        <div className={`car-button ${stream === slides[0].user_login ? "car-button-active" : "" }`} onClick={() => setStream(slides[0].user_login)}></div>
-                        <div className={`car-button ${stream === slides[1].user_login ? "car-button-active" : "" }`} onClick={() => setStream(slides[1].user_login)}></div>
-                        <div className={`car-button ${stream === slides[2].user_login ? "car-button-active" : "" }`} onClick={() => setStream(slides[2].user_login)}></div>
+                        <div className={`car-button ${stream === slides[0].user_login ? "car-button-active" : ""}`} onClick={() => setStream(slides[0].user_login)}></div>
+                        <div className={`car-button ${stream === slides[1].user_login ? "car-button-active" : ""}`} onClick={() => setStream(slides[1].user_login)}></div>
+                        <div className={`car-button ${stream === slides[2].user_login ? "car-button-active" : ""}`} onClick={() => setStream(slides[2].user_login)}></div>
                     </div>
                     <div className="car-stream">
-                        Watch Streamer
+                        <Link to={`/watchTwitch/${stream}`}>
+                            Watch Streamer
+                        </Link>
                     </div>
                 </>
             ) : (null)}
