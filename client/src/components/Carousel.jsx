@@ -55,7 +55,7 @@ const Carousel = () => {
                         <div className={`car-button ${stream === slides[2].user_login ? "car-button-active" : ""}`} onClick={() => setStream(slides[2].user_login)}></div>
                     </div>
                     <div className="car-stream">
-                        <Link to={`/watchTwitch/${stream}`}>
+                        <Link to={`/watchTwitch/${stream}`} className="car-stream-link">
                             Watch Streamer
                         </Link>
                     </div>

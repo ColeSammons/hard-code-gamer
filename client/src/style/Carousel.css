@@ -46,7 +46,14 @@
     margin: 0 auto;
     cursor: pointer;
     border-radius: 5px;
-    color: #fff;
+}
+
+.car-stream:hover {
+    background-color: #5081fd;
+}
+
+.car-stream-link {
+    color: #fff !important;
     text-decoration: none !important;
 }
 
