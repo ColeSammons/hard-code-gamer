@@ -133,6 +133,7 @@ export const getChannels= (data, token) => {
     })
 };
 
+//Get specific channel info
 export const getChannelInfo= (streamName, token) => {
     let options = {
         url: `https://api.twitch.tv/helix/users?login=${streamName}`,
@@ -148,6 +149,7 @@ export const getChannelInfo= (streamName, token) => {
     })
 };
 
+//Get channel by id
 export const getChannelByID= (id, token) => {
     let options = {
         url: `https://api.twitch.tv/helix/channels?broadcaster_id=${id}`,
