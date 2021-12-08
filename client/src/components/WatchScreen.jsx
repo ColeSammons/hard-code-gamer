@@ -105,4 +105,4 @@ const WatchScreen = () => {
     )
 }
 
-export default WatchScreen
+export default WatchScreen;
