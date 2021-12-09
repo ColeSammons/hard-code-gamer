@@ -83,17 +83,17 @@ const WatchScreen = () => {
                         width="100%"
                         height="100%"
                     ></iframe>
-                    <div className="watchVideo__info__left">
-                        <h2 className="watchVideo__title">{displaySn.snippet.title}</h2>
-                        <div className="views__publish">
-                            <p className="watchVideo__views">{displaySt.statistics.viewCount}</p>
-                            <i>•</i>
-                            <p className="publish">{getDate(displaySn.snippet.publishedAt)}</p>
+                    <div className="watchscreen-content-container">
+                        <div className="watchVideo__info__left">
+                            <h2 className="watchVideo__title">{displaySn.snippet.title}</h2>
+                            <div className="views__publish">
+                                <p className="watchVideo__views">{displaySt.statistics.viewCount} views</p>
+                                <i>•</i>
+                                <p className="publish">{getDate(displaySn.snippet.publishedAt)}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="watchVideo__info__right">
-                        <div className="btnContainer">
-                            <button className="saveButton" onClick={() => {addVideoHandler(displaySn.snippet.title)}}>SAVE VIDEO</button>
+                        <div className="watchVideo__info__right">
+                            <button className="saveButton" onClick={() => { addVideoHandler(displaySn.snippet.title) }}>SAVE VIDEO</button>
                         </div>
                     </div>
                     <div className="divider__line"></div>

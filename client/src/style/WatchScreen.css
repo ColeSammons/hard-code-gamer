@@ -3,6 +3,12 @@
     height: 70vh;
 }
 
+.watchscreen-content-container {
+    display: flex;
+    margin: 0 20px;
+    justify-content: space-between;
+}
+
 .views__publish {
     display: flex;
 }
@@ -35,10 +41,6 @@
     height: 60px;
 }
 
-.btnContainer > * {
-    margin-left: 10px;
-}
-
 .saveButton {
     font-weight: bold;
     font-size: 15px;
@@ -62,6 +64,10 @@
 @media screen and (max-width: 769px) {
     .watchScreen__player {
         height: 50vh;
+    }
+
+    .watchscreen-content-container {
+        display: block;
     }
 }
 

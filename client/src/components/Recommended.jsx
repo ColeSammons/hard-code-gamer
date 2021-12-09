@@ -43,7 +43,7 @@ const Recommended = () => {
         <div>
             {display ? (
                     <section className="container">
-                        <h2>
+                        <h2 className="rec-videos">
                             <span className="tag__video">VIDEOS</span> WE THINK YOU'LL LIKE
                         </h2>
                         <div className="row justify-content-xl-around justify-content-lg-center">

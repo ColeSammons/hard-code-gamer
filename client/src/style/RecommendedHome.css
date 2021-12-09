@@ -6,4 +6,11 @@
 
 .rec-link {
     text-decoration: none !important;
+    padding: 10px 0 0 0;
+}
+
+.rec-link:hover {
+    background-color: #292930;
+  border-radius: 5px;
+  transition: .3s ease;
 }

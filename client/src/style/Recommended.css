@@ -3,6 +3,10 @@
   padding: 30px 0px;
 }
 
+.rec-videos {
+  text-align: center;
+}
+
 .recVideo__videoContainer {
   display: flex;
   flex-wrap: wrap;
