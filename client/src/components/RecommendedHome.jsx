@@ -14,7 +14,6 @@ const RecommendedHome = () => {
                     throw new Error;
                 };
                 let { items } = await response.json();
-                console.log(items);
                 return items;
             }
             catch (error) {
