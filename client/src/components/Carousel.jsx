@@ -19,7 +19,6 @@ const Carousel = () => {
                 try {
                     const games = await getTwTopChannels(access_token);
                     const data = await games.json();
-                    console.log(data.data);
                     return data.data;
                 }
                 catch (error) {
