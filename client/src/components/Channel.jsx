@@ -7,7 +7,7 @@ const Channel = ({ avatar, name }) => {
     const [liveStatus, setLiveStatus] = useState('');
 
     const setViewerFormat = (views) => {
-        return Math.abs(views) > 999 ? Math.sign(views) * ((Math.abs(views) / 1000).toFixed(1)) + 'k' : Math.sign(views) * Math.abs(views)
+        return Math.abs(views) > 999 ? Math.sign(views) * ((Math.abs(views) / 1000).toFixed(1)) + 'k' : Math.sign(views) * Math.abs(views);
     };
 
     useEffect(() => {
