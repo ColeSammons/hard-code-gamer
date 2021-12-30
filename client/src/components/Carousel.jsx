@@ -40,9 +40,6 @@ const Carousel = () => {
 
     return (
         <>
-            {/* <Link to={`/watchTwitch/${stream}`} className="car-overlay">
-                
-            </Link> */}
             {slides ? (
                 <>
                     <div className="car-wrapper">
