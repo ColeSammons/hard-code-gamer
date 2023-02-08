@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const RecommendedHome = () => {
     let [display, setDisplay] = useState('');
-// change....
+// change.....
     useEffect(async () => {
         const handleDisplay = async () => {
             try {
