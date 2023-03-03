@@ -1,7 +1,5 @@
 # hard-code-gamer
 
-# Recipe Share
-
   [![License: MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
 
   ## Description 
